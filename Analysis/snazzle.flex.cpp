@@ -744,22 +744,20 @@ YY_RULE_SETUP
 case 4:
 YY_RULE_SETUP
 #line 12 "snazzle.l"
-{
+{ yylval.sval = _strdup(yytext); return STRING;
   // We have to strdup yytext because Flex will change it for the next token.
   // Note that this memory must be freed somewhere, so that's why we call
   // free() above in the Bison section.  (Aside: we use free() instead of
   // delete because strdup is a C function that uses malloc, not a C++
   // function that uses new.)
-  yylval.sval = _strdup(yytext);
-  return STRING;
-}
+ }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 21 "snazzle.l"
+#line 19 "snazzle.l"
 ECHO;
 	YY_BREAK
-#line 762 "snazzle.flex.cpp"
+#line 760 "snazzle.flex.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1764,5 +1762,5 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 21 "snazzle.l"
+#line 19 "snazzle.l"
 
