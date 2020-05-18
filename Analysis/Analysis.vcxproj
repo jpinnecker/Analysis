@@ -157,6 +157,9 @@
   <ItemGroup>
     <ClInclude Include="snazzle.tab.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="a.snazzle.file" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="custom_build_rules\win_flex_bison_custom_build.targets" />

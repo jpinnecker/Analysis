@@ -37,4 +37,9 @@
       <Filter>Resource Files</Filter>
     </Flex>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="a.snazzle.file">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

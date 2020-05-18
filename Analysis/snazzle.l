@@ -1,8 +1,5 @@
 %{
-  #include <cstdio>
-
   #include "snazzle.tab.h"  // to get the token types from Bison
-
 %}
 %option noyywrap
 %%
