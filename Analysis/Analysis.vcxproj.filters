@@ -15,37 +15,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="snazzle.flex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="snazzle.tab.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TokenProcessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="grammar.tab.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tokens.flex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="snazzle.tab.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TokenProcessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="grammar.tab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Bison Include="snazzle.y">
+    <None Include="code.c">
       <Filter>Resource Files</Filter>
-    </Bison>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Flex Include="snazzle.l">
+    <Flex Include="tokens.l">
       <Filter>Resource Files</Filter>
     </Flex>
   </ItemGroup>
   <ItemGroup>
-    <None Include="a.snazzle.file">
+    <Bison Include="grammar.y">
       <Filter>Resource Files</Filter>
-    </None>
+    </Bison>
   </ItemGroup>
 </Project>

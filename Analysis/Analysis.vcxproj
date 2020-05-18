@@ -139,28 +139,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Flex Include="snazzle.l">
+    <Flex Include="tokens.l">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </ExcludedFromBuild>
     </Flex>
   </ItemGroup>
   <ItemGroup>
-    <Bison Include="snazzle.y">
+    <Bison Include="grammar.y">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </ExcludedFromBuild>
     </Bison>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="snazzle.flex.cpp" />
-    <ClCompile Include="snazzle.tab.cpp" />
+    <ClCompile Include="grammar.tab.cpp" />
     <ClCompile Include="TokenProcessor.cpp" />
+    <ClCompile Include="tokens.flex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="snazzle.tab.h" />
+    <ClInclude Include="grammar.tab.h" />
     <ClInclude Include="TokenProcessor.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="a.snazzle.file" />
+    <None Include="code.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

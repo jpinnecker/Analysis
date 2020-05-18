@@ -9,6 +9,7 @@ private:
 
 	unsigned int intCounter = 0;
 	unsigned int floatCounter = 0;
+	unsigned int charCounter = 0;
 	unsigned int stringCounter = 0;
 
 	unsigned long long stackSize = 0;
@@ -22,9 +23,11 @@ private:
 	void updateRamSize();
 public:
 	void incrementLine();
+	unsigned int getLine();
 
 	void processInteger();
 	void processFloat();
+	void processCharacter();
 	void processString(string);
 
 	void printResults();

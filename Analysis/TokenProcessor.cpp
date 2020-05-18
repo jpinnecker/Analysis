@@ -32,6 +32,11 @@ void TokenProcessor::incrementLine()
 	lineCounter++;
 }
 
+unsigned int TokenProcessor::getLine()
+{
+	return ++lineCounter;
+}
+
 void TokenProcessor::processInteger()
 {
 	//Debugging Message.
@@ -46,6 +51,14 @@ void TokenProcessor::processFloat()
 	cout << "Float found." << endl;
 	incrementStack(sizeof(float));
 	incrementCounter(floatCounter);
+}
+
+void TokenProcessor::processCharacter()
+{
+	//Debugging Message.
+	cout << "Character found." << endl;
+	incrementStack(sizeof(char));
+	incrementCounter(charCounter);
 }
 
 /*TODO
@@ -64,10 +77,11 @@ void TokenProcessor::processString(string String)
 
 void TokenProcessor::printResults()
 {
-	cout << "Results over " << lineCounter << " lines." << endl
+	cout << "Results over " << ++lineCounter << " lines." << endl
 		<< "The following types were found:" << endl
 		<< "Integer: " << intCounter << endl
 		<< "Float: " << floatCounter << endl
+		<< "Character: " << charCounter << endl
 		<< "String: " << stringCounter << endl
 		<< "MaxRAM: " << ramMax << " Bytes" << endl;
 }
