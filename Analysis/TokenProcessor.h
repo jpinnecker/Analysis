@@ -23,8 +23,8 @@ private:
 public:
 	void incrementLine();
 
-	void processInteger(int);
-	void processFloat(float);
+	void processInteger();
+	void processFloat();
 	void processString(string);
 
 	void printResults();

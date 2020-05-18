@@ -5,8 +5,10 @@
 %%
 [ \t]             ;
 \n                return ENDL;
+int               return INT;
+[a-zA-Z][a-zA-Z0-9_]+ { yylval.sval = _strdup(yytext); return IDENTIFIER; }
+\;                return ';';
 [0-9]+\.[0-9]+    { yylval.fval = atof(yytext); return FLOAT; }
-[0-9]+            { yylval.ival = atoi(yytext); return INT; }
 [a-zA-Z0-9]+      { yylval.sval = _strdup(yytext); return STRING;
   // We have to strdup yytext because Flex will change it for the next token.
   // Note that this memory must be freed somewhere, so that's why we call

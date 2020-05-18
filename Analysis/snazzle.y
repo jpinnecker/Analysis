@@ -23,19 +23,21 @@
 // we can return ints or floats or strings cleanly.  Bison implements this
 // mechanism with the %union directive:
 %union {
-  int ival;
+//  int ival;
   float fval;
   char *sval;
 }
 
 // Constant String-Tokens
 %token ENDL
+%token INT
 
 // Define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the %union:
-%token <ival> INT
+//%token <ival> INT
 %token <fval> FLOAT
 %token <sval> STRING
+%token <sval> IDENTIFIER
 
 %%
 // This is the actual grammar that bison will parse, but for right now it's just
@@ -43,10 +45,10 @@
 // make a real one shortly:
 snazzle:
   snazzle INT     {
-      tokenProcessor.processInteger($2);
+      cout << "int gefunden." << endl;
     }
   | snazzle FLOAT  {
-      tokenProcessor.processFloat($2);
+      tokenProcessor.processFloat();
     }
   | snazzle STRING {
       tokenProcessor.processString($2); free($2);
@@ -54,11 +56,11 @@ snazzle:
   | snazzle ENDL {
         tokenProcessor.incrementLine();
         }
-  | INT            {
-      tokenProcessor.processInteger($1);
+  | INT IDENTIFIER ';'           {
+      cout << "int gefunden." << endl;
     }
   | FLOAT          {
-      tokenProcessor.processFloat($1);
+      tokenProcessor.processFloat();
     }
   | STRING         {
       tokenProcessor.processString($1); free($1);

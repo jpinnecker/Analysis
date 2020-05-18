@@ -32,18 +32,18 @@ void TokenProcessor::incrementLine()
 	lineCounter++;
 }
 
-void TokenProcessor::processInteger(int integer)
+void TokenProcessor::processInteger()
 {
 	//Debugging Message.
-	cout << "Integer found: " << integer << endl;
+	cout << "Integer found." << endl;
 	incrementStack(sizeof(int));
 	incrementCounter(intCounter);
 }
 
-void TokenProcessor::processFloat(float floating)
+void TokenProcessor::processFloat()
 {
 	//Debugging Message.
-	cout << "Float found: " << floating << endl;
+	cout << "Float found." << endl;
 	incrementStack(sizeof(float));
 	incrementCounter(floatCounter);
 }
