@@ -28,6 +28,9 @@
   char *sval;
 }
 
+// Constant String-Tokens
+%token ENDL
+
 // Define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the %union:
 %token <ival> INT
@@ -43,19 +46,25 @@ snazzle:
       tokenProcessor.processInteger($2);
     }
   | snazzle FLOAT  {
-      cout << "bison found a float: " << $2 << endl;
+      tokenProcessor.processFloat($2);
     }
   | snazzle STRING {
-      cout << "bison found a string: " << $2 << endl; free($2);
+      tokenProcessor.processString($2); free($2);
     }
+  | snazzle ENDL {
+        tokenProcessor.incrementLine();
+        }
   | INT            {
       tokenProcessor.processInteger($1);
     }
   | FLOAT          {
-      cout << "bison found a float: " << $1 << endl;
+      tokenProcessor.processFloat($1);
     }
   | STRING         {
-      cout << "bison found a string: " << $1 << endl; free($1);
+      tokenProcessor.processString($1); free($1);
+    }
+  | ENDL           {
+      tokenProcessor.incrementLine();
     }
   ;
 %%
