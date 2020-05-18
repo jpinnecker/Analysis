@@ -1,13 +1,16 @@
 %{
   #include <cstdio>
   #include <iostream>
+  #include "TokenProcessor.h"
   using namespace std;
 
   // Declare stuff from Flex that Bison needs to know about:
   extern int yylex();
   extern int yyparse();
   extern FILE *yyin;
- 
+  
+  TokenProcessor tokenProcessor = TokenProcessor();
+
   void yyerror(const char *s);
 %}
 
@@ -37,7 +40,7 @@
 // make a real one shortly:
 snazzle:
   snazzle INT     {
-      cout << "bison found an int: " << $2 << endl;
+      tokenProcessor.processInteger($2);
     }
   | snazzle FLOAT  {
       cout << "bison found a float: " << $2 << endl;
@@ -46,7 +49,7 @@ snazzle:
       cout << "bison found a string: " << $2 << endl; free($2);
     }
   | INT            {
-      cout << "bison found an int: " << $1 << endl;
+      tokenProcessor.processInteger($1);
     }
   | FLOAT          {
       cout << "bison found a float: " << $1 << endl;
@@ -72,6 +75,9 @@ int main(int, char**) {
   // Parse through the input:
   yyparse();
   
+  cout << endl;
+
+  tokenProcessor.printResults();
 }
 
 void yyerror(const char *s) {

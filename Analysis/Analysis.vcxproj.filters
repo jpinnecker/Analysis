@@ -21,9 +21,15 @@
     <ClCompile Include="snazzle.tab.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TokenProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="snazzle.tab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TokenProcessor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

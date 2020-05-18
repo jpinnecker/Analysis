@@ -153,9 +153,11 @@
   <ItemGroup>
     <ClCompile Include="snazzle.flex.cpp" />
     <ClCompile Include="snazzle.tab.cpp" />
+    <ClCompile Include="TokenProcessor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="snazzle.tab.h" />
+    <ClInclude Include="TokenProcessor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="a.snazzle.file" />
