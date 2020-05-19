@@ -39,11 +39,20 @@ bodyline:
     integer {
         tokenProcessor.processInteger();
     }
+    | double {
+         cout << "there is a double." << endl;
+    }
     | floating {
         tokenProcessor.processFloat();
     }
     | character {
         tokenProcessor.processCharacter();
+    }
+    | long {
+         cout << "there is a long." << endl;
+    }
+    | short {
+         cout << "there is a short." << endl;
     }
     | STRING {
         tokenProcessor.processString($1); free($1);
@@ -60,6 +69,15 @@ floating:
 character:
     CHAR IDENTIFIER ';'
     | CHAR IDENTIFIER '=' CHARACTER ';';
+double:
+    DOUBLE IDENTIFIER ';'
+    | DOUBLE IDENTIFIER '=' DOUBLE ';';
+short:
+    SHORT IDENTIFIER ';'
+    | SHORT IDENTIFIER '=' SHORT ';';
+long:
+    LONG IDENTIFIER ';'
+    | LONG IDENTIFIER '=' LONG ';';
 %%
 
 int main(int, char**) {

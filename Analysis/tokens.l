@@ -5,6 +5,10 @@
 %%
 [ \t.]                  ; 
 \n                      return ENDL;
+\+                      return '+';
+short                   return SHORT;
+long                    return LONG;
+double                  return DOUBLE;
 int                     return INT;
 char                    return CHAR;
 float                   return FLOAT;
