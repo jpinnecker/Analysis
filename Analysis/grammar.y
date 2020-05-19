@@ -22,8 +22,10 @@
 
 // Constant String-Tokens
 %token IDENTIFIER ENDL
+
 // Datatypes
-%token INT FLOAT CHAR
+%token INT FLOAT CHAR DOUBLE LONG SHORT
+
 // Right-Side Values
 %token INUMBER FNUMBER CHARACTER
 
@@ -71,13 +73,13 @@ character:
     | CHAR IDENTIFIER '=' CHARACTER ';';
 double:
     DOUBLE IDENTIFIER ';'
-    | DOUBLE IDENTIFIER '=' DOUBLE ';';
+    | DOUBLE IDENTIFIER '=' FNUMBER ';';
 short:
     SHORT IDENTIFIER ';'
-    | SHORT IDENTIFIER '=' SHORT ';';
+    | SHORT IDENTIFIER '=' INUMBER ';';
 long:
     LONG IDENTIFIER ';'
-    | LONG IDENTIFIER '=' LONG ';';
+    | LONG IDENTIFIER '=' INUMBER ';';
 %%
 
 int main(int, char**) {

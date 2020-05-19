@@ -12,7 +12,7 @@ double                  return DOUBLE;
 int                     return INT;
 char                    return CHAR;
 float                   return FLOAT;
-[a-zA-Z][a-zA-Z0-9_]+   return IDENTIFIER;
+[a-zA-Z][a-zA-Z0-9_]*   return IDENTIFIER;
 \;                      return ';';
 \=                      return '=';
 [0-9]+                  return INUMBER;
