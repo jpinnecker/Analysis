@@ -34,8 +34,8 @@
 /* Undocumented macros, especially those whose name start with YY_,
    are private implementation details.  Do not rely on them.  */
 
-#ifndef YY_YY_GRAMMAR_TAB_H_INCLUDED
-# define YY_YY_GRAMMAR_TAB_H_INCLUDED
+#ifndef YY_YY_SNAZZLE_TAB_H_INCLUDED
+# define YY_YY_SNAZZLE_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -49,19 +49,15 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    STRING = 258,
-    IDENTIFIER = 259,
-    ENDL = 260,
-    INT = 261,
-    FLOAT = 262,
-    CHAR = 263,
-    DOUBLE = 264,
-    LONG = 265,
-    SHORT = 266,
-    STRUCT = 267,
-    INUMBER = 268,
-    FNUMBER = 269,
-    CHARACTER = 270
+    IDENTIFIER = 258,
+    ENDL = 259,
+    INT = 260,
+    FLOAT = 261,
+    CHAR = 262,
+    INUMBER = 263,
+    FNUMBER = 264,
+    CHARACTER = 265,
+    STRING = 266
   };
 #endif
 
@@ -69,11 +65,14 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 17 "grammar.y"
+#line 25 "snazzle.y"
 
+  int ival;
+  float fval;
+  char cval;
   char *sval;
 
-#line 77 "grammar.tab.h"
+#line 76 "snazzle.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -86,4 +85,4 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_GRAMMAR_TAB_H_INCLUDED  */
+#endif /* !YY_YY_SNAZZLE_TAB_H_INCLUDED  */
