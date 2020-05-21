@@ -57,7 +57,9 @@ bodyline:
          cout << "there is a short." << endl;
     }
     | struct {
-         cout << "there is a struct datatyp" << endl;
+         cout << "struct-datatyp found" << endl;
+    | unsigned int {
+         cout << "unsigned int found" << endl;
     }
     | STRING {
         tokenProcessor.processString($1); free($1);
@@ -86,6 +88,9 @@ long:
 struct:
     STRUCT IDENTIFIER ';'
     | STRUCT IDENTIFIER '=' INUMBER ';';
+unsigned int:
+    UNSIGNED INT IDENTIFIER ';'
+    | UNSIGNED INT IDENTIFIER '=' INUMBER ';';
 %%
 
 int main(int, char**) {
