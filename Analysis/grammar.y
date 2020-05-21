@@ -58,6 +58,7 @@ bodyline:
     }
     | struct {
          cout << "struct-datatyp found" << endl;
+    }
     | unsigned int {
          cout << "unsigned int found" << endl;
     }
