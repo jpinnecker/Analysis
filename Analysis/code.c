@@ -9,3 +9,4 @@ char test;
 char test = 'a';
 struct king; 
 unsigned int test; 
+if (test < 5) { return 0 };

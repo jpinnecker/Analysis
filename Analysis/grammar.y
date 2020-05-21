@@ -24,7 +24,7 @@
 %token IDENTIFIER ENDL
 
 // Datatypes
-%token UNSIGNED
+%token UNSIGNED IF
 %token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
 
 // Right-Side Values
@@ -43,7 +43,7 @@ bodyline:
         tokenProcessor.processInteger();
     }
     | double {
-         cout << "there is a double." << endl;
+         cout << "double found." << endl;
     }
     | floating {
         tokenProcessor.processFloat();
@@ -52,16 +52,19 @@ bodyline:
         tokenProcessor.processCharacter();
     }
     | long {
-         cout << "there is a long." << endl;
+         cout << "long found." << endl;
     }
     | short {
-         cout << "there is a short." << endl;
+         cout << "short found." << endl;
     }
     | struct {
          cout << "struct-datatyp found" << endl;
     }
     | unsigned integer {
          cout << "unsigned datatyp found" << endl;
+    }
+    | if {
+         cout << "if statement found" << endl;
     }
     | STRING {
         tokenProcessor.processString($1); free($1);

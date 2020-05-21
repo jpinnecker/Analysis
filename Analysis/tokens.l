@@ -6,6 +6,7 @@
 [ \t.]                  ; 
 \n                      return ENDL;
 \+                      return '+';
+if						return IF;
 unsigned				return UNSIGNED;
 struct			        return STRUCT;
 short                   return SHORT;
