@@ -24,6 +24,7 @@
 %token IDENTIFIER ENDL
 
 // Datatypes
+%token UNSIGNED
 %token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
 
 // Right-Side Values
@@ -58,7 +59,8 @@ bodyline:
     }
     | struct {
          cout << "struct-datatyp found" << endl;
-    | unsigned int {
+    }
+    | unsigned integer {
          cout << "unsigned int found" << endl;
     }
     | STRING {
@@ -88,9 +90,8 @@ long:
 struct:
     STRUCT IDENTIFIER ';'
     | STRUCT IDENTIFIER '=' INUMBER ';';
-unsigned int:
-    UNSIGNED INT IDENTIFIER ';'
-    | UNSIGNED INT IDENTIFIER '=' INUMBER ';';
+unsigned:
+    UNSIGNED;
 %%
 
 int main(int, char**) {
