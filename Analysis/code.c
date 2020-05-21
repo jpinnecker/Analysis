@@ -8,3 +8,4 @@ float test = 123.123;
 char test;
 char test = 'a';
 struct king; 
+unsigned int test; 
