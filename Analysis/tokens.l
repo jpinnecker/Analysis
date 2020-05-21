@@ -6,6 +6,7 @@
 [ \t.]                  ; 
 \n                      return ENDL;
 \+                      return '+';
+struct			        return STRUCT;
 short                   return SHORT;
 long                    return LONG;
 double                  return DOUBLE;

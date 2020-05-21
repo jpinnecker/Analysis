@@ -24,7 +24,7 @@
 %token IDENTIFIER ENDL
 
 // Datatypes
-%token INT FLOAT CHAR DOUBLE LONG SHORT
+%token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
 
 // Right-Side Values
 %token INUMBER FNUMBER CHARACTER
@@ -56,6 +56,9 @@ bodyline:
     | short {
          cout << "there is a short." << endl;
     }
+    | struct {
+         cout << "there is a struct datatyp" << endl;
+    }
     | STRING {
         tokenProcessor.processString($1); free($1);
     }
@@ -80,6 +83,9 @@ short:
 long:
     LONG IDENTIFIER ';'
     | LONG IDENTIFIER '=' INUMBER ';';
+struct:
+    STRUCT IDENTIFIER ';'
+    | STRUCT IDENTIFIER '=' INUMBER ';';
 %%
 
 int main(int, char**) {
