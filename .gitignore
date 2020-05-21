@@ -338,6 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/Analysis/snazzle.tab.h
-/Analysis/snazzle.tab.cpp
-/Analysis/snazzle.flex.cpp
+
+# Generated files
+/Analysis/tokens.flex.cpp
+/Analysis/grammar.tab.h
+/Analysis/grammar.tab.cpp
