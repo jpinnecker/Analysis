@@ -58,9 +58,10 @@ extern int yydebug;
     DOUBLE = 264,
     LONG = 265,
     SHORT = 266,
-    INUMBER = 267,
-    FNUMBER = 268,
-    CHARACTER = 269
+    STRUCT = 267,
+    INUMBER = 268,
+    FNUMBER = 269,
+    CHARACTER = 270
   };
 #endif
 
@@ -72,7 +73,7 @@ union YYSTYPE
 
   char *sval;
 
-#line 76 "grammar.tab.h"
+#line 77 "grammar.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
