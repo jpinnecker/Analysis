@@ -61,7 +61,7 @@ bodyline:
          cout << "struct-datatyp found" << endl;
     }
     | unsigned integer {
-         cout << "unsigned int found" << endl;
+         cout << "unsigned datatyp found" << endl;
     }
     | STRING {
         tokenProcessor.processString($1); free($1);
