@@ -27,6 +27,11 @@ void TokenProcessor::updateRamSize()
 		ramMax = ramSize;
 }
 
+void TokenProcessor::prntPrc()
+{
+	cout << "Token processed." << endl;
+}
+
 void TokenProcessor::incrementLine()
 {
 	lineCounter++;
@@ -40,30 +45,59 @@ unsigned int TokenProcessor::getLine()
 void TokenProcessor::processInteger()
 {
 	//Debugging Message.
-	cout << "Integer found." << endl;
+	cout << "Integer found... ";
 	incrementStack(sizeof(int));
 	incrementCounter(intCounter);
+	prntPrc();
+}
+
+void TokenProcessor::processShort()
+{
+	//Debugging Message.
+	cout << "Short found... ";
+	incrementStack(sizeof(short));
+	incrementCounter(shortCounter);
+	prntPrc();
+}
+
+void TokenProcessor::processLong()
+{
+	//Debugging Message.
+	cout << "Long found... ";
+	incrementStack(sizeof(long));
+	incrementCounter(longCounter);
+	prntPrc();
+}
+
+void TokenProcessor::processLongLong()
+{
+	//Debugging Message.
+	cout << "Long Long found... ";
+	incrementStack(sizeof(int));
+	incrementCounter(longLongCounter);
+	prntPrc();
 }
 
 void TokenProcessor::processFloat()
 {
 	//Debugging Message.
-	cout << "Float found." << endl;
+	cout << "Float found... ";
 	incrementStack(sizeof(float));
 	incrementCounter(floatCounter);
+	prntPrc();
 }
 
 void TokenProcessor::processCharacter()
 {
 	//Debugging Message.
-	cout << "Character found." << endl;
+	cout << "Character found... ";
 	incrementStack(sizeof(char));
 	incrementCounter(charCounter);
+	prntPrc();
 }
 
 /*TODO
-*Difficult. We have to account for SSO.
-*
+*In c this is simply a character array terminated by '\0'
 */
 void TokenProcessor::processString(string String)
 {

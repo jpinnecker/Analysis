@@ -107,7 +107,17 @@ double:
     | DOUBLE IDENTIFIER '=' FNUMBER ';';
 short:
     SHORT IDENTIFIER ';'
-    | SHORT IDENTIFIER '=' INUMBER ';';
+    | SHORT IDENTIFIER '=' INUMBER ';'
+    | SIGNED SHORT IDENTIFIER ';'
+    | SIGNED SHORT IDENTIFIER '=' INUMBER ';';
+    | UNSIGNED SHORT IDENTIFIER ';'
+    | UNSIGNED SHORT IDENTIFIER '=' INUMBER ';'
+    | SHORT INT IDENTIFIER ';'
+    | SHORT INT IDENTIFIER '=' INUMBER ';'
+    | SIGNED SHORT INT IDENTIFIER ';'
+    | SIGNED SHORT INT IDENTIFIER '=' INUMBER ';'
+    | UNSIGNED SHORT INT IDENTIFIER ';'
+    | UNSIGNED SHORT INT IDENTIFIER '=' INUMBER ';';
 long:
     LONG IDENTIFIER ';'
     | LONG IDENTIFIER '=' INUMBER ';';
@@ -115,7 +125,7 @@ struct:
     STRUCT IDENTIFIER ';'
     | STRUCT IDENTIFIER '=' INUMBER ';';
 //ARRAY:
-//    [int|double|float|char|short] IDENTIFIER [] ';'
+//    [int|double|float|char|short] IDENTIFIER [] ';';
 %%
 
 int main(int, char**) {
