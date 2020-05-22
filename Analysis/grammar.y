@@ -46,7 +46,7 @@ bodyline:
         tokenProcessor.processInteger();
     }
     | double {
-         cout << "double found." << endl;
+        tokenProcessor.processDouble();
     }
     | floating {
         tokenProcessor.processFloat();
@@ -55,22 +55,22 @@ bodyline:
         tokenProcessor.processCharacter();
     }
     | long {
-         cout << "long found." << endl;
+        tokenProcessor.processLong();
     }
     | short {
-         cout << "short found." << endl;
+        tokenProcessor.processShort();
     }
     | struct {
-         cout << "struct-datatyp found" << endl;
+        cout << "struct-datatyp found" << endl;
     }
     | VOID  {
-         cout << "function without return variable found" << endl;
+        cout << "function without return variable found" << endl;
     }
     | IF {
-         cout << "if statement found" << endl;
+        cout << "if statement found" << endl;
     }
     | WHILE {
-         cout << "While statement found" << endl;
+        cout << "While statement found" << endl;
     }
 //    | ARRAY {
 //         cout << " array found" << endl;

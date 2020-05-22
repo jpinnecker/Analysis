@@ -73,7 +73,7 @@ void TokenProcessor::processLongLong()
 {
 	//Debugging Message.
 	cout << "Long Long found... ";
-	incrementStack(sizeof(int));
+	incrementStack(sizeof(long long));
 	incrementCounter(longLongCounter);
 	prntPrc();
 }
@@ -84,6 +84,24 @@ void TokenProcessor::processFloat()
 	cout << "Float found... ";
 	incrementStack(sizeof(float));
 	incrementCounter(floatCounter);
+	prntPrc();
+}
+
+void TokenProcessor::processDouble()
+{
+	//Debugging Message.
+	cout << "Double found... ";
+	incrementStack(sizeof(double));
+	incrementCounter(doubleCounter);
+	prntPrc();
+}
+
+void TokenProcessor::processLongDouble()
+{
+	//Debugging Message.
+	cout << "Long Double found... ";
+	incrementStack(sizeof(long double));
+	incrementCounter(longDoubleCounter);
 	prntPrc();
 }
 
@@ -114,8 +132,12 @@ void TokenProcessor::printResults()
 	cout << "Results over " << ++lineCounter << " lines." << endl
 		<< "The following types were found:" << endl
 		<< "Integer: " << intCounter << endl
+		<< "Short: " << shortCounter << endl
+		<< "Long: " << longCounter << endl
+		<< "Long Long: " << longLongCounter << endl
 		<< "Float: " << floatCounter << endl
+		<< "Double: " << doubleCounter << endl
+		<< "Long Double: " << longDoubleCounter << endl
 		<< "Character: " << charCounter << endl
-		<< "String: " << stringCounter << endl
 		<< "MaxRAM: " << ramMax << " Bytes" << endl;
 }
