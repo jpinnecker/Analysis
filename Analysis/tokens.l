@@ -9,7 +9,6 @@
 while					return WHILE;
 if						return IF;
 void					return VOID;
-(int|double|float|char|short) IDENTIFIER INUMBER		return ARRAY;
 signed					return SIGNED;
 unsigned			    return UNSIGNED;
 struct			        return STRUCT;

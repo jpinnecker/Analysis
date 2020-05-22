@@ -63,12 +63,6 @@ bodyline:
     | struct {
          cout << "struct-datatyp found" << endl;
     }
-    | unsigned {
-         cout << "unsigned datatyp found" << endl;
-    }
-    | signed  {
-         cout << "signed datatyp found" << endl;
-    }
     | VOID  {
          cout << "function without return variable found" << endl;
     }
@@ -78,9 +72,9 @@ bodyline:
     | WHILE {
          cout << "While statement found" << endl;
     }
-    | ARRAY {
-         cout << " array found" << endl;
-    }
+//    | ARRAY {
+//         cout << " array found" << endl;
+//    }
     | STRING {
         tokenProcessor.processString($1); free($1);
     }
@@ -88,14 +82,26 @@ bodyline:
         tokenProcessor.incrementLine();
     };
 integer:
-    INT IDENTIFIER ';'
-    | INT IDENTIFIER  '=' INUMBER ';';
+    SIGNED IDENTIFIER ';'
+    | SIGNED IDENTIFIER '=' INUMBER ';'
+    | SIGNED INT IDENTIFIER ';'
+    | SIGNED INT IDENTIFIER '=' INUMBER ';'
+    | INT IDENTIFIER ';'
+    | INT IDENTIFIER  '=' INUMBER ';'
+    | UNSIGNED IDENTIFIER ';'
+    | UNSIGNED IDENTIFIER '=' INUMBER ';'
+    | UNSIGNED INT IDENTIFIER ';'
+    | UNSIGNED INT IDENTIFIER '=' INUMBER ';';
 floating:
     FLOAT IDENTIFIER ';'
     | FLOAT IDENTIFIER '=' FNUMBER ';';
 character:
     CHAR IDENTIFIER ';'
-    | CHAR IDENTIFIER '=' CHARACTER ';';
+    | CHAR IDENTIFIER '=' CHARACTER ';'
+    | SIGNED CHAR IDENTIFIER ';'
+    | SIGNED CHAR IDENTIFIER '=' CHARACTER ';'
+    | UNSIGNED CHAR IDENTIFIER ';'
+    | UNSIGNED CHAR IDENTIFIER '=' CHARACTER ';';
 double:
     DOUBLE IDENTIFIER ';'
     | DOUBLE IDENTIFIER '=' FNUMBER ';';
@@ -108,12 +114,8 @@ long:
 struct:
     STRUCT IDENTIFIER ';'
     | STRUCT IDENTIFIER '=' INUMBER ';';
-unsigned:
-    UNSIGNED;
-signed:
-    SIGNED;
-ARRAY:
-    [int|double|float|char|short] IDENTIFIER [] ';'
+//ARRAY:
+//    [int|double|float|char|short] IDENTIFIER [] ';'
 %%
 
 int main(int, char**) {
