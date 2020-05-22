@@ -21,11 +21,14 @@
 %token <sval> STRING
 
 // Constant String-Tokens
-%token IDENTIFIER ENDL
+%token IDENTIFIER ENDL 
 
 // Datatypes
-%token UNSIGNED IF
+%token UNSIGNED SIGNED VOID ARRAY
 %token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
+
+// Statement 
+%token IF  WHILE
 
 // Right-Side Values
 %token INUMBER FNUMBER CHARACTER
@@ -60,11 +63,23 @@ bodyline:
     | struct {
          cout << "struct-datatyp found" << endl;
     }
-    | unsigned integer {
+    | unsigned {
          cout << "unsigned datatyp found" << endl;
     }
-    | if {
+    | signed  {
+         cout << "signed datatyp found" << endl;
+    }
+    | VOID  {
+         cout << "function without return variable found" << endl;
+    }
+    | IF {
          cout << "if statement found" << endl;
+    }
+    | WHILE {
+         cout << "While statement found" << endl;
+    }
+    | ARRAY {
+         cout << " array found" << endl;
     }
     | STRING {
         tokenProcessor.processString($1); free($1);
@@ -95,6 +110,10 @@ struct:
     | STRUCT IDENTIFIER '=' INUMBER ';';
 unsigned:
     UNSIGNED;
+signed:
+    SIGNED;
+ARRAY:
+    [int|double|float|char|short] IDENTIFIER [] ';'
 %%
 
 int main(int, char**) {
