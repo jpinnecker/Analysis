@@ -10,3 +10,5 @@ char test = 'a';
 struct king;
 signed int test;
 signed test = 0;
+long double gwaet;
+long long awd;

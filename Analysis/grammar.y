@@ -28,7 +28,7 @@
 %token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
 
 // Statement 
-%token IF  WHILE
+%token IF WHILE
 
 // Right-Side Values
 %token INUMBER FNUMBER CHARACTER
@@ -48,6 +48,8 @@ bodyline:
     | double {
         tokenProcessor.processDouble();
     }
+    | long_double {
+        tokenProcessor.processLongDouble(); }
     | floating {
         tokenProcessor.processFloat();
     }
@@ -57,6 +59,8 @@ bodyline:
     | long {
         tokenProcessor.processLong();
     }
+    | long_long {
+        tokenProcessor.processLongLong(); }
     | short {
         tokenProcessor.processShort();
     }
@@ -81,6 +85,15 @@ bodyline:
     | ENDL {
         tokenProcessor.incrementLine();
     };
+datatype:
+    integer
+    | floating
+    | character
+    | double
+    | long_double
+    | short
+    | long_long
+    | long;
 integer:
     SIGNED IDENTIFIER ';'
     | SIGNED IDENTIFIER '=' INUMBER ';'
@@ -105,9 +118,9 @@ character:
 double:
     DOUBLE IDENTIFIER ';'
     | DOUBLE IDENTIFIER '=' FNUMBER ';';
-long double:
+long_double:
     | LONG DOUBLE IDENTIFIER ';'
-    | LONG DOUBLE INDENTIFIER '=' INUMBER ';';
+    | LONG DOUBLE IDENTIFIER '=' INUMBER ';';
 short:
     SHORT IDENTIFIER ';'
     | SHORT IDENTIFIER '=' INUMBER ';'
@@ -129,12 +142,12 @@ long:
     | UNSIGNED LONG IDENTIFIER ';'
     | UNSIGNED LONG IDENTIFIER '=' INUMBER ';'
     | LONG INT IDENTIFIER ';'
-    | LONG  INT IDENTIFIER '=' INUMBER ';'
+    | LONG INT IDENTIFIER '=' INUMBER ';'
     | SIGNED LONG INT IDENTIFIER ';'
     | SIGNED LONG INT IDENTIFIER '=' INUMBER ';'
     | UNSIGNED LONG INT IDENTIFIER ';'
     | UNSIGNED LONG INT IDENTIFIER '=' INUMBER '=';
-long long:
+long_long:
     | LONG LONG IDENTIFIER ';'
     | LONG LONG IDENTIFIER '=' INUMBER ';'
     | SIGNED LONG LONG IDENTIFIER ';'
