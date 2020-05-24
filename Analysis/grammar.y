@@ -14,12 +14,6 @@
   void yyerror(const char *s);
 %}
 
-%union {
-  char *sval;
-}
-
-%token <sval> STRING
-
 // Constant String-Tokens
 %token IDENTIFIER ENDL 
 
@@ -43,26 +37,28 @@ bodylines:
     | bodyline;
 bodyline:
     integer {
-        tokenProcessor.processInteger();
+        tokenProcessor.processToken(sizeof(int), "Integer found... ");
     }
     | double {
-        tokenProcessor.processDouble();
+        tokenProcessor.processToken(sizeof(double), "Double found... ");
     }
     | long_double {
-        tokenProcessor.processLongDouble(); }
+        tokenProcessor.processToken(sizeof(long double), "Long Double found... ");
+    }
     | floating {
-        tokenProcessor.processFloat();
+        tokenProcessor.processToken(sizeof(float), "Float found... ");
     }
     | character {
-        tokenProcessor.processCharacter();
+        tokenProcessor.processToken(sizeof(char), "Character found... ");
     }
     | long {
-        tokenProcessor.processLong();
+        tokenProcessor.processToken(sizeof(long), "Long found... ");
     }
     | long_long {
-        tokenProcessor.processLongLong(); }
+        tokenProcessor.processToken(sizeof(long long), "Long Long found... ");
+    }
     | short {
-        tokenProcessor.processShort();
+        tokenProcessor.processToken(sizeof(short), "Short found... ");
     }
     | struct {
         cout << "struct-datatyp found" << endl;
@@ -79,9 +75,6 @@ bodyline:
 //    | ARRAY {
 //         cout << " array found" << endl;
 //    }
-    | STRING {
-        tokenProcessor.processString($1); free($1);
-    }
     | ENDL {
         tokenProcessor.incrementLine();
     };

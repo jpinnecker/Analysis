@@ -1,11 +1,17 @@
 #pragma once
 #include <iostream>
+#include <stack>
+#include "DataElement.h"
 using namespace std;
 
 class TokenProcessor
 {
 private:
-	unsigned int lineCounter = 0;
+	Ram ram;
+	//Remember to delete top before pop
+	stack<DataElement*> ramStack;
+
+	unsigned int lineCounter = 1;
 
 	unsigned int intCounter = 0;
 	unsigned int shortCounter = 0;
@@ -17,30 +23,14 @@ private:
 	unsigned int charCounter = 0;
 	unsigned int stringCounter = 0;
 
-	unsigned long long stackSize = 0;
-	unsigned long long heapSize = 0;
-	unsigned long long ramSize = 0;
-	unsigned long long ramMax = 0;
-
 	void incrementCounter(unsigned int &);
-	void incrementStack(size_t);
-	void incrementHeap(size_t);
-	void updateRamSize();
 
 	void prntPrc();
 public:
 	void incrementLine();
 	unsigned int getLine();
 
-	void processInteger();
-	void processShort();
-	void processLong();
-	void processLongLong();
-	void processFloat();
-	void processDouble();
-	void processLongDouble();
-	void processCharacter();
-	void processString(string);
+	void processToken(size_t, string);
 
 	void printResults();
 };

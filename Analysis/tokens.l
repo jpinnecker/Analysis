@@ -27,5 +27,4 @@ float                   return FLOAT;
 [0-9]+                  return INUMBER;
 [0-9]+\.[0-9]+          return FNUMBER;
 \'.\'                   return CHARACTER;
-[a-zA-Z0-9]+            { yylval.sval = _strdup(yytext); return STRING; }
 %%
