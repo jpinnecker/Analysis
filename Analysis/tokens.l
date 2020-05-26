@@ -7,6 +7,7 @@
 \n                      return ENDL;
 \+                      return '+';
 while					return WHILE;
+pointer					return POINTER;
 if						return IF;
 void					return VOID;
 signed					return SIGNED;
@@ -19,6 +20,8 @@ int                     return INT;
 char                    return CHAR;
 float                   return FLOAT;
 [a-zA-Z][a-zA-Z0-9_]*   return IDENTIFIER;
+\*						return '*';
+\&						return '&';
 \;                      return ';';
 \!=						return '!=';
 \<						return '!';

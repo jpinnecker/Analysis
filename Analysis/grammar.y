@@ -18,8 +18,11 @@
 %token IDENTIFIER ENDL 
 
 // Datatypes
-%token UNSIGNED SIGNED VOID ARRAY
+%token UNSIGNED SIGNED VOID ARRAY 
 %token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
+
+//Adresse & Pointer
+%token POINTER
 
 // Statement 
 %token IF WHILE
@@ -71,6 +74,9 @@ bodyline:
     }
     | WHILE {
         cout << "While statement found" << endl;
+    }
+    | pointer {
+        cout << "Pointer found..." << endl;
     }
 //    | ARRAY {
 //         cout << " array found" << endl;
@@ -153,12 +159,77 @@ long_long:
     | SIGNED LONG LONG INT IDENTIFIER '=' INUMBER ';'
     | UNSIGNED LONG LONG INT IDENTIFIER ';'
     | UNSIGNED LONG LONG INT IDENTIFIER '=' INUMBER ';';
-
 struct:
-    STRUCT IDENTIFIER ';'
-    | STRUCT IDENTIFIER '=' INUMBER ';';
+    STRUCT IDENTIFIER ';';
+    //| STRUCT IDENTIFIER '=' INUMBER ';';
+pointer:
+  /*|datatype'*' IDENTIFIER ';'
+    |datatype'*' IDENTIFIER '=' IDENTIFIER ';'
+    |datatype'*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |datatype '*'IDENTIFIER ';'
+    |datatype '*'IDENTIFIER '=' IDENTIFIER ';'
+    |datatype '*'IDENTIFIER '=' '&' IDENTIFIER ';'
+    |datatype '*' IDENTIFIER ';'
+    |datatype '*' IDENTIFIER '=' IDENTIFIER ';'
+    |datatype '*' IDENTIFIER '=' '&' IDENTIFIER ';'*/
+    |INT'*' IDENTIFIER ';'
+    |INT'*' IDENTIFIER '=' IDENTIFIER ';'
+    |INT'*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |INT '*'IDENTIFIER ';'
+    |INT '*'IDENTIFIER '=' IDENTIFIER ';'
+    |INT '*'IDENTIFIER '=' '&' IDENTIFIER ';'
+    |INT '*' IDENTIFIER ';'
+    |INT '*' IDENTIFIER '=' IDENTIFIER ';'
+    |INT '*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |CHAR'*' IDENTIFIER ';'
+    |CHAR'*' IDENTIFIER '=' IDENTIFIER ';'
+    |CHAR'*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |CHAR '*'IDENTIFIER ';'
+    |CHAR '*'IDENTIFIER '=' IDENTIFIER ';'
+    |CHAR '*'IDENTIFIER '=' '&' IDENTIFIER ';'
+    |CHAR '*' IDENTIFIER ';'
+    |CHAR '*' IDENTIFIER '=' IDENTIFIER ';'
+    |CHAR '*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |FLOAT'*' IDENTIFIER ';'
+    |FLOAT'*' IDENTIFIER '=' IDENTIFIER ';'
+    |FLOAT'*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |FLOAT '*'IDENTIFIER ';'
+    |FLOAT '*'IDENTIFIER '=' IDENTIFIER ';'
+    |FLOAT '*'IDENTIFIER '=' '&' IDENTIFIER ';'
+    |FLOAT '*' IDENTIFIER ';'
+    |FLOAT '*' IDENTIFIER '=' IDENTIFIER ';'
+    |FLOAT '*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |DOUBLE'*' IDENTIFIER ';'
+    |DOUBLE'*' IDENTIFIER '=' IDENTIFIER ';'
+    |DOUBLE'*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |DOUBLE '*'IDENTIFIER ';'
+    |DOUBLE '*'IDENTIFIER '=' IDENTIFIER ';'
+    |DOUBLE '*'IDENTIFIER '=' '&' IDENTIFIER ';'
+    |DOUBLE '*' IDENTIFIER ';'
+    |DOUBLE '*' IDENTIFIER '=' IDENTIFIER ';'
+    |DOUBLE '*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |SHORT'*' IDENTIFIER ';'
+    |SHORT'*' IDENTIFIER '=' IDENTIFIER ';'
+    |SHORT'*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |SHORT '*'IDENTIFIER ';'
+    |SHORT '*'IDENTIFIER '=' IDENTIFIER ';'
+    |SHORT '*'IDENTIFIER '=' '&' IDENTIFIER ';'
+    |SHORT '*' IDENTIFIER ';'
+    |SHORT '*' IDENTIFIER '=' IDENTIFIER ';'
+    |SHORT '*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |LONG'*' IDENTIFIER ';'
+    |LONG'*' IDENTIFIER '=' IDENTIFIER ';'
+    |LONG'*' IDENTIFIER '=' '&' IDENTIFIER ';'
+    |LONG '*'IDENTIFIER ';'
+    |LONG '*'IDENTIFIER '=' IDENTIFIER ';'
+    |LONG '*'IDENTIFIER '=' '&' IDENTIFIER ';'
+    |LONG '*' IDENTIFIER ';'
+    |LONG '*' IDENTIFIER '=' IDENTIFIER ';'
+    |LONG '*' IDENTIFIER '=' '&' IDENTIFIER ';';
+    
+
 //ARRAY:
-//    [int|double|float|char|short] IDENTIFIER [] ';';
+//    datatype IDENTIFIER '[' INUMBER ']' ';';
 %%
 
 int main(int, char**) {
