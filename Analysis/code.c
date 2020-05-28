@@ -19,3 +19,6 @@ char* c;
 double * d;
 short *s;
 float *f;
+long long* test; 
+long double lk;
+long double * ab;
