@@ -7,7 +7,6 @@
 \n                      return ENDL;
 \+                      return '+';
 while					return WHILE;
-pointer					return POINTER;
 if						return IF;
 void					return VOID;
 signed					return SIGNED;

@@ -1,5 +1,6 @@
 #pragma once
 
+//Keeps track of memory size
 class Ram
 {
 private:

@@ -18,11 +18,8 @@
 %token IDENTIFIER ENDL 
 
 // Datatypes
-%token UNSIGNED SIGNED VOID ARRAY 
+%token UNSIGNED SIGNED VOID
 %token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
-
-//Adresse & Pointer
-%token POINTER
 
 // Statement 
 %token IF WHILE
@@ -39,28 +36,28 @@ bodylines:
     bodylines bodyline
     | bodyline;
 bodyline:
-    integer {
+    integer ';' {
         tokenProcessor.processToken(sizeof(int), "Integer found... ");
     }
-    | double {
+    | double ';' {
         tokenProcessor.processToken(sizeof(double), "Double found... ");
     }
-    | long_double {
+    | long_double ';' {
         tokenProcessor.processToken(sizeof(long double), "Long Double found... ");
     }
-    | floating {
+    | floating ';' {
         tokenProcessor.processToken(sizeof(float), "Float found... ");
     }
-    | character {
+    | character ';' {
         tokenProcessor.processToken(sizeof(char), "Character found... ");
     }
-    | long {
+    | long ';' {
         tokenProcessor.processToken(sizeof(long), "Long found... ");
     }
-    | long_long {
+    | long_long ';' {
         tokenProcessor.processToken(sizeof(long long), "Long Long found... ");
     }
-    | short {
+    | short ';' {
         tokenProcessor.processToken(sizeof(short), "Short found... ");
     }
     | struct {
@@ -75,8 +72,8 @@ bodyline:
     | WHILE {
         cout << "While statement found" << endl;
     }
-    | pointer {
-        cout << "Pointer found..." << endl;
+    | pointer ';' {
+        tokenProcessor.processToken(sizeof(void*), "Pointer found... ");
     }
 //    | ARRAY {
 //         cout << " array found" << endl;
@@ -84,168 +81,98 @@ bodyline:
     | ENDL {
         tokenProcessor.incrementLine();
     };
-datatype:
-    integer
-    | floating
-    | character
-    | double
-    | long_double
-    | short
-    | long_long
-    | long;
-integer:
-    SIGNED IDENTIFIER ';'
-    | SIGNED IDENTIFIER '=' INUMBER ';'
-    | SIGNED INT IDENTIFIER ';'
-    | SIGNED INT IDENTIFIER '=' INUMBER ';'
-    | INT IDENTIFIER ';'
-    | INT IDENTIFIER  '=' INUMBER ';'
-    | UNSIGNED IDENTIFIER ';'
-    | UNSIGNED IDENTIFIER '=' INUMBER ';'
-    | UNSIGNED INT IDENTIFIER ';'
-    | UNSIGNED INT IDENTIFIER '=' INUMBER ';';
-floating:
-    FLOAT IDENTIFIER ';'
-    | FLOAT IDENTIFIER '=' FNUMBER ';';
-character:
-    CHAR IDENTIFIER ';'
-    | CHAR IDENTIFIER '=' CHARACTER ';'
-    | SIGNED CHAR IDENTIFIER ';'
-    | SIGNED CHAR IDENTIFIER '=' CHARACTER ';'
-    | UNSIGNED CHAR IDENTIFIER ';'
-    | UNSIGNED CHAR IDENTIFIER '=' CHARACTER ';';
-double:
-    DOUBLE IDENTIFIER ';'
-    | DOUBLE IDENTIFIER '=' FNUMBER ';';
-long_double:
-    | LONG DOUBLE IDENTIFIER ';'
-    | LONG DOUBLE IDENTIFIER '=' INUMBER ';';
-short:
-    SHORT IDENTIFIER ';'
-    | SHORT IDENTIFIER '=' INUMBER ';'
-    | SIGNED SHORT IDENTIFIER ';'
-    | SIGNED SHORT IDENTIFIER '=' INUMBER ';'
-    | UNSIGNED SHORT IDENTIFIER ';'
-    | UNSIGNED SHORT IDENTIFIER '=' INUMBER ';'
-    | SHORT INT IDENTIFIER ';'
-    | SHORT INT IDENTIFIER '=' INUMBER ';'
-    | SIGNED SHORT INT IDENTIFIER ';'
-    | SIGNED SHORT INT IDENTIFIER '=' INUMBER ';'
-    | UNSIGNED SHORT INT IDENTIFIER ';'
-    | UNSIGNED SHORT INT IDENTIFIER '=' INUMBER ';';
-long:
-    LONG IDENTIFIER ';'
-    | LONG IDENTIFIER '=' INUMBER ';'
-    | SIGNED LONG IDENTIFIER ';'
-    | SIGNED LONG IDENTIFIER '=' INUMBER ';'
-    | UNSIGNED LONG IDENTIFIER ';'
-    | UNSIGNED LONG IDENTIFIER '=' INUMBER ';'
-    | LONG INT IDENTIFIER ';'
-    | LONG INT IDENTIFIER '=' INUMBER ';'
-    | SIGNED LONG INT IDENTIFIER ';'
-    | SIGNED LONG INT IDENTIFIER '=' INUMBER ';'
-    | UNSIGNED LONG INT IDENTIFIER ';'
-    | UNSIGNED LONG INT IDENTIFIER '=' INUMBER '=';
-long_long:
-    | LONG LONG IDENTIFIER ';'
-    | LONG LONG IDENTIFIER '=' INUMBER ';'
-    | SIGNED LONG LONG IDENTIFIER ';'
-    | SIGNED LONG LONG IDENTIFIER '=' INUMBER ';'
-    | UNSIGNED LONG LONG IDENTIFIER ';'
-    | UNSIGNED LONG LONG IDENTIFIER '=' INUMBER ';'
-    | LONG LONG INT IDENTIFIER ';'
-    | LONG LONG INT IDENTIFIER '=' INUMBER ';'
-    | SIGNED LONG LONG INT IDENTIFIER ';'
-    | SIGNED LONG LONG INT IDENTIFIER '=' INUMBER ';'
-    | UNSIGNED LONG LONG INT IDENTIFIER ';'
-    | UNSIGNED LONG LONG INT IDENTIFIER '=' INUMBER ';';
-struct:
-    STRUCT IDENTIFIER ';';
-    //| STRUCT IDENTIFIER '=' INUMBER ';';
 pointer:
-  /*|datatype'*' IDENTIFIER ';'
-    |datatype'*' IDENTIFIER '=' IDENTIFIER ';'
-    |datatype'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |datatype '*'IDENTIFIER ';'
-    |datatype '*'IDENTIFIER '=' IDENTIFIER ';'
-    |datatype '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |datatype '*' IDENTIFIER ';'
-    |datatype '*' IDENTIFIER '=' IDENTIFIER ';'
-    |datatype '*' IDENTIFIER '=' '&' IDENTIFIER ';'*/
-    |INT'*' IDENTIFIER ';'
-    |INT'*' IDENTIFIER '=' IDENTIFIER ';'
-    |INT'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |INT '*'IDENTIFIER ';'
-    |INT '*'IDENTIFIER '=' IDENTIFIER ';'
-    |INT '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |INT '*' IDENTIFIER ';'
-    |INT '*' IDENTIFIER '=' IDENTIFIER ';'
-    |INT '*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |CHAR'*' IDENTIFIER ';'
-    |CHAR'*' IDENTIFIER '=' IDENTIFIER ';'
-    |CHAR'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |CHAR '*'IDENTIFIER ';'
-    |CHAR '*'IDENTIFIER '=' IDENTIFIER ';'
-    |CHAR '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |CHAR '*' IDENTIFIER ';'
-    |CHAR '*' IDENTIFIER '=' IDENTIFIER ';'
-    |CHAR '*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |FLOAT'*' IDENTIFIER ';'
-    |FLOAT'*' IDENTIFIER '=' IDENTIFIER ';'
-    |FLOAT'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |FLOAT '*'IDENTIFIER ';'
-    |FLOAT '*'IDENTIFIER '=' IDENTIFIER ';'
-    |FLOAT '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |FLOAT '*' IDENTIFIER ';'
-    |FLOAT '*' IDENTIFIER '=' IDENTIFIER ';'
-    |FLOAT '*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |DOUBLE'*' IDENTIFIER ';'
-    |DOUBLE'*' IDENTIFIER '=' IDENTIFIER ';'
-    |DOUBLE'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |DOUBLE '*'IDENTIFIER ';'
-    |DOUBLE '*'IDENTIFIER '=' IDENTIFIER ';'
-    |DOUBLE '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |DOUBLE '*' IDENTIFIER ';'
-    |DOUBLE '*' IDENTIFIER '=' IDENTIFIER ';'
-    |DOUBLE '*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |SHORT'*' IDENTIFIER ';'
-    |SHORT'*' IDENTIFIER '=' IDENTIFIER ';'
-    |SHORT'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |SHORT '*'IDENTIFIER ';'
-    |SHORT '*'IDENTIFIER '=' IDENTIFIER ';'
-    |SHORT '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |SHORT '*' IDENTIFIER ';'
-    |SHORT '*' IDENTIFIER '=' IDENTIFIER ';'
-    |SHORT '*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG'*' IDENTIFIER ';'
-    |LONG'*' IDENTIFIER '=' IDENTIFIER ';'
-    |LONG'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG '*'IDENTIFIER ';'
-    |LONG '*'IDENTIFIER '=' IDENTIFIER ';'
-    |LONG '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG '*' IDENTIFIER ';'
-    |LONG '*' IDENTIFIER '=' IDENTIFIER ';'
-    |LONG '*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG LONG'*' IDENTIFIER ';'
-    |LONG LONG'*' IDENTIFIER '=' IDENTIFIER ';'
-    |LONG LONG'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG LONG '*'IDENTIFIER ';'
-    |LONG LONG '*'IDENTIFIER '=' IDENTIFIER ';'
-    |LONG LONG '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG LONG '*' IDENTIFIER ';'
-    |LONG LONG '*' IDENTIFIER '=' IDENTIFIER ';'
-    |LONG LONG '*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG DOUBLE'*' IDENTIFIER ';'
-    |LONG DOUBLE'*' IDENTIFIER '=' IDENTIFIER ';'
-    |LONG DOUBLE'*' IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG DOUBLE '*'IDENTIFIER ';'
-    |LONG DOUBLE '*'IDENTIFIER '=' IDENTIFIER ';'
-    |LONG DOUBLE '*'IDENTIFIER '=' '&' IDENTIFIER ';'
-    |LONG DOUBLE '*' IDENTIFIER ';'
-    |LONG DOUBLE '*' IDENTIFIER '=' IDENTIFIER ';'
-    |LONG DOUBLE '*' IDENTIFIER '=' '&' IDENTIFIER ';';
-    
-
+    datatype '*' IDENTIFIER
+    | datatype '*' IDENTIFIER '=' IDENTIFIER
+    | datatype '*' IDENTIFIER '=' '&' IDENTIFIER
+;
+datatype:
+    INT
+    | FLOAT
+    | CHAR
+    | DOUBLE
+    | LONG DOUBLE
+    | SHORT
+    | LONG LONG
+    | LONG
+;
+integer:
+    SIGNED IDENTIFIER
+    | SIGNED IDENTIFIER '=' INUMBER
+    | SIGNED INT IDENTIFIER
+    | SIGNED INT IDENTIFIER '=' INUMBER
+    | INT IDENTIFIER
+    | INT IDENTIFIER  '=' INUMBER
+    | UNSIGNED IDENTIFIER
+    | UNSIGNED IDENTIFIER '=' INUMBER
+    | UNSIGNED INT IDENTIFIER
+    | UNSIGNED INT IDENTIFIER '=' INUMBER
+;
+floating:
+    FLOAT IDENTIFIER
+    | FLOAT IDENTIFIER '=' FNUMBER
+;
+double:
+    DOUBLE IDENTIFIER
+    | DOUBLE IDENTIFIER '=' FNUMBER
+;
+character:
+    CHAR IDENTIFIER
+    | CHAR IDENTIFIER '=' CHARACTER
+    | SIGNED CHAR IDENTIFIER
+    | SIGNED CHAR IDENTIFIER '=' CHARACTER
+    | UNSIGNED CHAR IDENTIFIER
+    | UNSIGNED CHAR IDENTIFIER '=' CHARACTER
+;
+long_double:
+    LONG DOUBLE IDENTIFIER
+    | LONG DOUBLE IDENTIFIER '=' FNUMBER
+;
+short:
+    SHORT IDENTIFIER
+    | SHORT IDENTIFIER '=' INUMBER
+    | SIGNED SHORT IDENTIFIER
+    | SIGNED SHORT IDENTIFIER '=' INUMBER
+    | UNSIGNED SHORT IDENTIFIER
+    | UNSIGNED SHORT IDENTIFIER '=' INUMBER
+    | SHORT INT IDENTIFIER
+    | SHORT INT IDENTIFIER '=' INUMBER
+    | SIGNED SHORT INT IDENTIFIER
+    | SIGNED SHORT INT IDENTIFIER '=' INUMBER
+    | UNSIGNED SHORT INT IDENTIFIER
+    | UNSIGNED SHORT INT IDENTIFIER '=' INUMBER
+;
+long:
+    LONG IDENTIFIER
+    | LONG IDENTIFIER '=' INUMBER
+    | SIGNED LONG IDENTIFIER
+    | SIGNED LONG IDENTIFIER '=' INUMBER
+    | UNSIGNED LONG IDENTIFIER
+    | UNSIGNED LONG IDENTIFIER '=' INUMBER
+    | LONG INT IDENTIFIER
+    | LONG INT IDENTIFIER '=' INUMBER
+    | SIGNED LONG INT IDENTIFIER
+    | SIGNED LONG INT IDENTIFIER '=' INUMBER
+    | UNSIGNED LONG INT IDENTIFIER
+    | UNSIGNED LONG INT IDENTIFIER '=' INUMBER
+;
+long_long:
+    LONG LONG IDENTIFIER
+    | LONG LONG IDENTIFIER '=' INUMBER
+    | SIGNED LONG LONG IDENTIFIER
+    | SIGNED LONG LONG IDENTIFIER '=' INUMBER
+    | UNSIGNED LONG LONG IDENTIFIER
+    | UNSIGNED LONG LONG IDENTIFIER '=' INUMBER
+    | LONG LONG INT IDENTIFIER
+    | LONG LONG INT IDENTIFIER '=' INUMBER
+    | SIGNED LONG LONG INT IDENTIFIER
+    | SIGNED LONG LONG INT IDENTIFIER '=' INUMBER
+    | UNSIGNED LONG LONG INT IDENTIFIER
+    | UNSIGNED LONG LONG INT IDENTIFIER '=' INUMBER
+;
+struct:
+    STRUCT IDENTIFIER ';'
+;
 //ARRAY:
 //    datatype IDENTIFIER '[' INUMBER ']' ';';
 %%
