@@ -46,11 +46,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="code.c">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Flex Include="tokens.l">
       <Filter>Resource Files</Filter>
     </Flex>

@@ -6,6 +6,8 @@
 [ \t.]                  ; 
 \n                      return ENDL;
 \+                      return '+';
+\-						return '-';
+\/						return '/';
 while					return WHILE;
 if						return IF;
 void					return VOID;
@@ -22,11 +24,15 @@ float                   return FLOAT;
 \*						return '*';
 \&						return '&';
 \;                      return ';';
-\!=						return '!=';
-\<						return '!';
+\!						return '!';
+\<						return '<';
 \>						return '>';
 \=                      return '=';
+\(						return '(';
+\)						return ')';
+\{						return '{';
+\}						return '}';
 [0-9]+                  return INUMBER;
-[0-9]+\.[0-9]+          return FNUMBER;
+[0-9]+\.[0-9]+f?        return FNUMBER;
 \'.\'                   return CHARACTER;
 %%
