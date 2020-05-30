@@ -94,7 +94,7 @@ bodyline:
         tokenProcessor.incrementLine();
     }
     | error ';' {
-        cout << "Omitting error on line " << tokenProcessor.getLine() << endl;
+        cout << "Omitting unknown rule on line " << tokenProcessor.getLine() << endl;
     }
 ;
 pointer:
