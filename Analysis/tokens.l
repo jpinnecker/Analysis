@@ -24,6 +24,7 @@ float                   return FLOAT;
 \*						return '*';
 \&						return '&';
 \;                      return ';';
+\,						return ',';
 \!						return '!';
 \<						return '<';
 \>						return '>';

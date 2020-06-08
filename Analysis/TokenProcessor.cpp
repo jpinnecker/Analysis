@@ -7,7 +7,7 @@ void TokenProcessor::incrementCounter(unsigned int &counter)
 
 void TokenProcessor::prntPrc()
 {
-	cout << "Token processed." << endl;
+	cout << "Token processed on line " << getLine() << "." << endl;
 }
 
 void TokenProcessor::incrementLine()

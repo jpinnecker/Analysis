@@ -1,4 +1,4 @@
-int main(void) {
+int main(int argc, char** argv) {
 	int test = 0;
 	double d = 2.0;
 	short s = 9;
@@ -26,4 +26,5 @@ int main(void) {
 	double* dp;
 	short* sp;
 	float* fp;
+	char *** pointerpointerpointer;
 }

@@ -77,10 +77,8 @@ bodyline:
 //    }
 
 //Funktionsdefinition
-//TODO: Mehrere Datentypen
-//TODO: Über den Fall 'Void' hinaus erweitern.
 //TODO: TokenProcessor Anbindung
-    | integer '(' datatype ')' '{' {
+    | integer '(' parameters ')' '{' {
         ;
     }
 
@@ -97,11 +95,43 @@ bodyline:
         cout << "Omitting unknown rule on line " << tokenProcessor.getLine() << endl;
     }
 ;
-pointer:
-    datatype '*' IDENTIFIER
-    | datatype '*' IDENTIFIER '=' IDENTIFIER
-    | datatype '*' IDENTIFIER '=' '&' IDENTIFIER
+
+//Regeln für die Funktionsparameter
+parameters:
+    parameter
+    | parameters ',' parameter
 ;
+parameter:
+    %empty
+    | datatype
+    | datatype IDENTIFIER
+    | pointer
+;
+
+//Arrayregeln
+array:
+    IDENTIFIER arraybrackets
+;
+//Brauchen wir, da es auch mehrdimensionale Arrays geben kann.
+arraybrackets:
+    '[' ']'
+    | arraybrackets '[' ']'
+;
+
+//Pointerregeln
+pointer:
+    datatype pointerstars
+    | datatype pointerstars IDENTIFIER
+    | datatype pointerstars IDENTIFIER '=' IDENTIFIER
+    | datatype pointerstars IDENTIFIER '=' '&' IDENTIFIER
+;
+//Brauchen wir, da es auch pointer auf pointer geben kann.
+pointerstars:
+    '*'
+    | pointerstars '*'
+;
+//Zusammenfassung der Datentypen.
+//Nur von Pointern nutzbar, da die immer gleiche Größe haben.
 datatype:
     INT
     | SIGNED
@@ -114,6 +144,9 @@ datatype:
     | LONG
     | VOID
 ;
+
+
+//Definitionsregeln für Datentypen
 integer:
     SIGNED IDENTIFIER
     | SIGNED IDENTIFIER '=' INUMBER
