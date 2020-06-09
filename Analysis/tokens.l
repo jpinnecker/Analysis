@@ -14,6 +14,11 @@
 %x DOUBLE_LOGIC
 %x LONG_LOGIC
 %%
+
+	/*||---------------------------------||
+	  ||    Erkennung von Kommentaren    ||
+	  ||---------------------------------||*/
+
 "/*"					BEGIN COMMENT_SECTION;
 <COMMENT_SECTION>{
 "*/"					BEGIN INITIAL;
@@ -33,11 +38,22 @@
 .						;
 }
 
+
+	/*||---------------------------------||
+	  ||      Datentypenerkennung        ||
+	  ||---------------------------------||*/
+
+
+	/*Hier werden die Regeln zusammengefasst, die für alle Typen gleich gelten*/
+
 <INT_LOGIC,SHORT_LOGIC,CHAR_LOGIC,LONG_LOGIC,DOUBLE_LOGIC,SIGNED_LOGIC,FLOAT_LOGIC>{
 [ \t]					;
 ("const"|"volatile"|"restrict") ;
 \n						return ENDL;
 }
+
+	/*|| Der Kellerautomat für den Startzustand signed/unsigned ||
+	  ||--------------------------------------------------------||*/
 
 unsigned				BEGIN SIGNED_LOGIC;
 signed					BEGIN SIGNED_LOGIC;
@@ -68,6 +84,8 @@ int						;
 	}
 }
 
+	/*|| Der Kellerautomat für den Startzustand int ||
+	  ||--------------------------------------------||*/
 
 int						BEGIN INT_LOGIC;
 <INT_LOGIC>{
@@ -97,6 +115,8 @@ unsigned				;
 	}
 }
 
+	/*|| Der Kellerautomat für den Startzustand short ||
+	  ||----------------------------------------------||*/
 
 short					BEGIN SHORT_LOGIC;
 <SHORT_LOGIC>{
@@ -111,6 +131,8 @@ unsigned				;
 	}
 }
 
+	/*|| Der Kellerautomat für den Startzustand char ||
+	  ||---------------------------------------------||*/
 
 char					BEGIN CHAR_LOGIC;
 <CHAR_LOGIC>{
@@ -124,6 +146,8 @@ unsigned				;
 	}
 }
 
+	/*|| Der Kellerautomat für den Startzustand float ||
+	  ||----------------------------------------------||*/
 
 float                   BEGIN FLOAT_LOGIC;
 <FLOAT_LOGIC>{
@@ -135,6 +159,8 @@ float                   BEGIN FLOAT_LOGIC;
 	}
 }
 
+	/*|| Der Kellerautomat für den Startzustand double ||
+	  ||-----------------------------------------------||*/
 
 double                  BEGIN DOUBLE_LOGIC;
 <DOUBLE_LOGIC>{
@@ -158,6 +184,8 @@ long					longcounter=1;
 	}
 }
 
+	/*|| Der Kellerautomat für den Startzustand long ||
+	  ||---------------------------------------------||*/
 
 long					BEGIN LONG_LOGIC;
 <LONG_LOGIC>{
@@ -187,6 +215,11 @@ int						;
 		}					
 	}
 }
+
+
+	/*||---------------------------------||
+	  ||        Einzelne Tokens          ||
+	  ||---------------------------------||*/
 
 
 struct			        return STRUCT;
