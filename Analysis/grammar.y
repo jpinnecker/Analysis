@@ -143,44 +143,44 @@ pointer:
 
 //Definitionsregeln für Datentypen
 integer:
-    INTID
-    | INTID '=' INUMBER
-    | INTID '=' IDENTIFIER
+    INTID {free($1);}
+    | INTID '=' INUMBER {free($1);}
+    | INTID '=' IDENTIFIER {free($1);}
 ;
 floating:
-    FLOATID
-    | FLOATID '=' FNUMBER
-    | FLOATID '=' IDENTIFIER
+    FLOATID {free($1);}
+    | FLOATID '=' FNUMBER {free($1);}
+    | FLOATID '=' IDENTIFIER {free($1);}
 ;
 double:
-    DOUBLEID
-    | DOUBLEID '=' FNUMBER
-    | DOUBLEID '=' IDENTIFIER
+    DOUBLEID {free($1);}
+    | DOUBLEID '=' FNUMBER {free($1);}
+    | DOUBLEID '=' IDENTIFIER {free($1);}
 ;
 character:
-    CHARID
-    | CHARID '=' CHARACTER
-    | CHARID '=' IDENTIFIER
+    CHARID {free($1);}
+    | CHARID '=' CHARACTER {free($1);}
+    | CHARID '=' IDENTIFIER {free($1);}
 ;
 short:
-    SHORTID
-    | SHORTID '=' INUMBER
-    | SHORTID '=' IDENTIFIER
+    SHORTID {free($1);}
+    | SHORTID '=' INUMBER {free($1);}
+    | SHORTID '=' IDENTIFIER {free($1);}
 ;
 long:
-    LONGID
-    | LONGID '=' INUMBER
-    | LONGID '=' IDENTIFIER
+    LONGID {free($1);}
+    | LONGID '=' INUMBER {free($1);}
+    | LONGID '=' IDENTIFIER {free($1);}
 ;
 long_long:
-    LONGLONGID
-    | LONGLONGID '=' INUMBER
-    | LONGLONGID '=' IDENTIFIER
+    LONGLONGID {free($1);}
+    | LONGLONGID '=' INUMBER {free($1);}
+    | LONGLONGID '=' IDENTIFIER {free($1);}
 ;
 long_double:
-    LONGDOUBLEID
-    | LONGDOUBLEID '=' FNUMBER
-    | LONGDOUBLEID '=' IDENTIFIER
+    LONGDOUBLEID {free($1);}
+    | LONGDOUBLEID '=' FNUMBER {free($1);}
+    | LONGDOUBLEID '=' IDENTIFIER {free($1);}
 ;
 struct:
     STRUCT IDENTIFIER
