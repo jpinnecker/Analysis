@@ -1,8 +1,12 @@
 %{
   #include <cstdio>
+  #include <string>
   #include <iostream>
   #include "TokenProcessor.h"
   using namespace std;
+
+  //Enable debugging output
+  #define YYDEBUG 1
 
   // Declare stuff from Flex that Bison needs to know about:
   extern int yylex();
@@ -14,12 +18,18 @@
   void yyerror(const char *s);
 %}
 
+%union {
+    char* string; //remember to free!!!
+}
+%token <string> IDENTIFIER INTID LONGID LONGLONGID LONGDOUBLEID DOUBLEID SHORTID CHARID FLOATID
+
+
 // Constant String-Tokens
-%token IDENTIFIER ENDL UNKNOWN
+%token ENDL CSTRING
 
 // Datatypes
-%token UNSIGNED SIGNED VOID
-%token INT FLOAT CHAR DOUBLE LONG SHORT STRUCT
+%token POINTER VOID
+%token STRUCT
 
 // Statement 
 %token IF WHILE
@@ -60,7 +70,7 @@ bodyline:
     | short ';' {
         tokenProcessor.processToken(sizeof(short), "Short found... ");
     }
-    | struct {
+    | struct ';' {
         cout << "struct-datatyp found" << endl;
     }
     | IF {
@@ -76,9 +86,19 @@ bodyline:
 //         cout << " array found" << endl;
 //    }
 
-//Funktionsdefinition
+//Funktionsdefinitionen
 //TODO: TokenProcessor Anbindung
-    | integer '(' parameters ')' '{' {
+    | INTID '(' {
+        cout << "Funktion erkannt: " << $1 << endl; free($1);
+        ;
+    }
+    | integer {
+        ;
+    }
+    | pointer {
+        ;
+    }
+    | ')' {
         ;
     }
 
@@ -91,170 +111,80 @@ bodyline:
     | ENDL {
         tokenProcessor.incrementLine();
     }
+
+//Errorhandling
     | error ';' {
         cout << "Omitting unknown rule on line " << tokenProcessor.getLine() << endl;
     }
-;
-
-//Regeln für die Funktionsparameter
-parameters:
-    parameter
-    | parameters ',' parameter
-;
-parameter:
-    %empty
-    | datatype
-    | datatype IDENTIFIER
-    | pointer
+    | error ENDL {
+        cout << "Omitting unknown rule on line " << tokenProcessor.getLine() << endl;
+        tokenProcessor.incrementLine();
+    }
 ;
 
 //Arrayregeln
-array:
-    IDENTIFIER arraybrackets
-;
+//array:
+//    IDENTIFIER arraybrackets
+//;
 //Brauchen wir, da es auch mehrdimensionale Arrays geben kann.
-arraybrackets:
-    '[' ']'
-    | arraybrackets '[' ']'
-;
+//arraybrackets:
+//    '[' ']'
+//    | arraybrackets '[' ']'
+//;
 
 //Pointerregeln
 pointer:
-    datatype pointerstars
-    | datatype pointerstars IDENTIFIER
-    | datatype pointerstars IDENTIFIER '=' IDENTIFIER
-    | datatype pointerstars IDENTIFIER '=' '&' IDENTIFIER
+    POINTER
+    | POINTER IDENTIFIER
+    | POINTER '=' CSTRING
+    | POINTER '=' IDENTIFIER
+    | POINTER '=' '&' IDENTIFIER
 ;
-//Brauchen wir, da es auch pointer auf pointer geben kann.
-pointerstars:
-    '*'
-    | pointerstars '*'
-;
-//Zusammenfassung der Datentypen.
-//Nur von Pointern nutzbar, da die immer gleiche Größe haben.
-datatype:
-    INT
-    | SIGNED
-    | FLOAT
-    | CHAR
-    | DOUBLE
-    | LONG DOUBLE
-    | SHORT
-    | LONG LONG
-    | LONG
-    | VOID
-;
-
 
 //Definitionsregeln für Datentypen
 integer:
-    SIGNED IDENTIFIER
-    | SIGNED IDENTIFIER '=' INUMBER
-    | SIGNED IDENTIFIER '=' IDENTIFIER
-    | SIGNED INT IDENTIFIER
-    | SIGNED INT IDENTIFIER '=' INUMBER
-    | SIGNED INT IDENTIFIER '=' IDENTIFIER
-    | INT IDENTIFIER
-    | INT IDENTIFIER  '=' INUMBER
-    | INT IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED IDENTIFIER
-    | UNSIGNED IDENTIFIER '=' INUMBER
-    | UNSIGNED IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED INT IDENTIFIER
-    | UNSIGNED INT IDENTIFIER '=' INUMBER
-    | UNSIGNED INT IDENTIFIER '=' IDENTIFIER
+    INTID
+    | INTID '=' INUMBER
+    | INTID '=' IDENTIFIER
 ;
 floating:
-    FLOAT IDENTIFIER
-    | FLOAT IDENTIFIER '=' FNUMBER
-    | FLOAT IDENTIFIER '=' IDENTIFIER
+    FLOATID
+    | FLOATID '=' FNUMBER
+    | FLOATID '=' IDENTIFIER
 ;
 double:
-    DOUBLE IDENTIFIER
-    | DOUBLE IDENTIFIER '=' FNUMBER
-    | DOUBLE IDENTIFIER '=' IDENTIFIER
+    DOUBLEID
+    | DOUBLEID '=' FNUMBER
+    | DOUBLEID '=' IDENTIFIER
 ;
 character:
-    CHAR IDENTIFIER
-    | CHAR IDENTIFIER '=' CHARACTER
-    | CHAR IDENTIFIER '=' IDENTIFIER
-    | SIGNED CHAR IDENTIFIER
-    | SIGNED CHAR IDENTIFIER '=' CHARACTER
-    | SIGNED CHAR IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED CHAR IDENTIFIER
-    | UNSIGNED CHAR IDENTIFIER '=' CHARACTER
-    | UNSIGNED CHAR IDENTIFIER '=' IDENTIFIER
-;
-long_double:
-    LONG DOUBLE IDENTIFIER
-    | LONG DOUBLE IDENTIFIER '=' FNUMBER
-    | LONG DOUBLE IDENTIFIER '=' IDENTIFIER
+    CHARID
+    | CHARID '=' CHARACTER
+    | CHARID '=' IDENTIFIER
 ;
 short:
-    SHORT IDENTIFIER
-    | SHORT IDENTIFIER '=' INUMBER
-    | SHORT IDENTIFIER '=' IDENTIFIER
-    | SIGNED SHORT IDENTIFIER
-    | SIGNED SHORT IDENTIFIER '=' INUMBER
-    | SIGNED SHORT IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED SHORT IDENTIFIER
-    | UNSIGNED SHORT IDENTIFIER '=' INUMBER
-    | UNSIGNED SHORT IDENTIFIER '=' IDENTIFIER
-    | SHORT INT IDENTIFIER
-    | SHORT INT IDENTIFIER '=' INUMBER
-    | SHORT INT IDENTIFIER '=' IDENTIFIER
-    | SIGNED SHORT INT IDENTIFIER
-    | SIGNED SHORT INT IDENTIFIER '=' INUMBER
-    | SIGNED SHORT INT IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED SHORT INT IDENTIFIER
-    | UNSIGNED SHORT INT IDENTIFIER '=' INUMBER
-    | UNSIGNED SHORT INT IDENTIFIER '=' IDENTIFIER
+    SHORTID
+    | SHORTID '=' INUMBER
+    | SHORTID '=' IDENTIFIER
 ;
 long:
-    LONG IDENTIFIER
-    | LONG IDENTIFIER '=' INUMBER
-    | LONG IDENTIFIER '=' IDENTIFIER
-    | SIGNED LONG IDENTIFIER
-    | SIGNED LONG IDENTIFIER '=' INUMBER
-    | SIGNED LONG IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED LONG IDENTIFIER
-    | UNSIGNED LONG IDENTIFIER '=' INUMBER
-    | UNSIGNED LONG IDENTIFIER '=' IDENTIFIER
-    | LONG INT IDENTIFIER
-    | LONG INT IDENTIFIER '=' INUMBER
-    | LONG INT IDENTIFIER '=' IDENTIFIER
-    | SIGNED LONG INT IDENTIFIER
-    | SIGNED LONG INT IDENTIFIER '=' INUMBER
-    | SIGNED LONG INT IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED LONG INT IDENTIFIER
-    | UNSIGNED LONG INT IDENTIFIER '=' INUMBER
-    | UNSIGNED LONG INT IDENTIFIER '=' IDENTIFIER
+    LONGID
+    | LONGID '=' INUMBER
+    | LONGID '=' IDENTIFIER
 ;
 long_long:
-    LONG LONG IDENTIFIER
-    | LONG LONG IDENTIFIER '=' INUMBER
-    | LONG LONG IDENTIFIER '=' IDENTIFIER
-    | SIGNED LONG LONG IDENTIFIER
-    | SIGNED LONG LONG IDENTIFIER '=' INUMBER
-    | SIGNED LONG LONG IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED LONG LONG IDENTIFIER
-    | UNSIGNED LONG LONG IDENTIFIER '=' INUMBER
-    | UNSIGNED LONG LONG IDENTIFIER '=' IDENTIFIER
-    | LONG LONG INT IDENTIFIER
-    | LONG LONG INT IDENTIFIER '=' INUMBER
-    | LONG LONG INT IDENTIFIER '=' IDENTIFIER
-    | SIGNED LONG LONG INT IDENTIFIER
-    | SIGNED LONG LONG INT IDENTIFIER '=' INUMBER
-    | SIGNED LONG LONG INT IDENTIFIER '=' IDENTIFIER
-    | UNSIGNED LONG LONG INT IDENTIFIER
-    | UNSIGNED LONG LONG INT IDENTIFIER '=' INUMBER
-    | UNSIGNED LONG LONG INT IDENTIFIER '=' IDENTIFIER
+    LONGLONGID
+    | LONGLONGID '=' INUMBER
+    | LONGLONGID '=' IDENTIFIER
+;
+long_double:
+    LONGDOUBLEID
+    | LONGDOUBLEID '=' FNUMBER
+    | LONGDOUBLEID '=' IDENTIFIER
 ;
 struct:
-    STRUCT IDENTIFIER ';'
+    STRUCT IDENTIFIER
 ;
-//ARRAY:
-//    datatype IDENTIFIER '[' INUMBER ']' ';';
 %%
 
 int main(int, char**) {

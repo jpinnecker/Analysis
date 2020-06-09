@@ -142,12 +142,18 @@
     <Flex Include="tokens.l">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </ExcludedFromBuild>
+      <Debug Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</Debug>
     </Flex>
   </ItemGroup>
   <ItemGroup>
     <Bison Include="grammar.y">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </ExcludedFromBuild>
+      <Debug Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</Debug>
+      <Verbose Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</Verbose>
+      <GraphFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </GraphFile>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">-t %(AdditionalOptions)</AdditionalOptions>
     </Bison>
   </ItemGroup>
   <ItemGroup>
