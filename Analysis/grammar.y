@@ -13,15 +13,21 @@
   extern int yyparse();
   extern FILE *yyin;
   
+  //Instanziierung unseres Token-Prozessors
   TokenProcessor tokenProcessor = TokenProcessor();
 
   void yyerror(const char *s);
 %}
 
+  /*|| Token, deren Wert weitergereicht wird ||
+    ||---------------------------------------||*/
+
 %union {
     char* string; //remember to free!!!
+    int integer;
 }
 %token <string> IDENTIFIER INTID LONGID LONGLONGID LONGDOUBLEID DOUBLEID SHORTID CHARID FLOATID
+%token <integer> INUMBER
 
 
 // Constant String-Tokens
@@ -35,7 +41,7 @@
 %token IF WHILE
 
 // Right-Side Values
-%token INUMBER FNUMBER CHARACTER
+%token FNUMBER CHARACTER
 
 %%
 // This is the actual grammar that bison will parse.
@@ -46,6 +52,11 @@ bodylines:
     bodylines bodyline
     | bodyline;
 bodyline:
+
+  /*||---------------------------||
+    ||  Einfache Deklinationen   ||
+    ||---------------------------||*/
+
     integer ';' {
         tokenProcessor.processToken(sizeof(int), "Integer found... ");
     }
@@ -70,9 +81,48 @@ bodyline:
     | short ';' {
         tokenProcessor.processToken(sizeof(short), "Short found... ");
     }
-    | struct ';' {
-        cout << "struct-datatyp found" << endl;
+
+
+/*  ||---------------------------||
+    ||    Array Deklinationen    ||
+    ||---------------------------||*/
+
+
+    | INTID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(int)*$3+sizeof(void*), "Integer array of length " + to_string($3) + " found... ");
+        free($1);
     }
+    | DOUBLEID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(double)*$3+sizeof(void*), "Double array of length " + to_string($3) + " found... ");
+        free($1);
+    }
+    | LONGDOUBLEID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(long double)*$3+sizeof(void*), "Long Double array of length " + to_string($3) + " found... ");
+        free($1);
+    }
+    | FLOATID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(float)*$3+sizeof(void*), "Floating array of length " + to_string($3) + " found... ");
+        free($1);
+    }
+    | CHARID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(char)*$3+sizeof(void*), "Character array of length " + to_string($3) + " found... ");
+        free($1);
+    }
+    | LONGID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(long)*$3+sizeof(void*), "Long array of length " + to_string($3) + " found... ");
+        free($1);
+    }
+    | LONGLONGID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(long long)*$3+sizeof(void*), "Long Long array of length " + to_string($3) + " found... ");
+        free($1);
+    }
+    | SHORTID '[' INUMBER ']' ';' {
+        tokenProcessor.processToken(sizeof(short)*$3+sizeof(void*), "Short array of length " + to_string($3) + " found... ");
+        free($1);
+    }
+
+
+
     | IF {
         cout << "if statement found" << endl;
     }
@@ -181,9 +231,6 @@ long_double:
     LONGDOUBLEID {free($1);}
     | LONGDOUBLEID '=' FNUMBER {free($1);}
     | LONGDOUBLEID '=' IDENTIFIER {free($1);}
-;
-struct:
-    STRUCT IDENTIFIER
 ;
 %%
 

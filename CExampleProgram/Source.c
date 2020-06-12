@@ -8,7 +8,6 @@ int main(int argc, char** argv) {
 	float test4 = 123.123f;
 	char test5;
 	char test6 = 'a';
-	struct king;
 	signed int test7;
 	signed test8 = 0;
 	long double gwaet;
@@ -27,4 +26,5 @@ int main(int argc, char** argv) {
 	short* sp;
 	float* fp;
 	char *** pointerpointerpointer;
+	int testarray[4];
 }
