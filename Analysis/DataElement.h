@@ -4,12 +4,12 @@
 class DataElement
 {
 private:
-	Ram* stackPointer;
+	Ram* ramPointer;
 	size_t byteSize;
 public:
-	DataElement(size_t byteSize, Ram* stackPointer);
+	DataElement(size_t byteSize, Ram* ramPointer);
 	DataElement(const DataElement&) = delete;
 	~DataElement();
-	Ram* getStackpointer() const;
+	Ram* getRampointer() const;
 	size_t getByteSize() const;
 };

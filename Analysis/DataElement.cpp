@@ -1,21 +1,21 @@
 #include "DataElement.h"
 #include <iostream>
 
-DataElement::DataElement(size_t byteSize, Ram* stackPointer)
+DataElement::DataElement(size_t byteSize, Ram* ramPointer)
 {
 	this->byteSize = byteSize;
-	this->stackPointer = stackPointer;
-	this->stackPointer->increaseStackSize(this->byteSize);
+	this->ramPointer = ramPointer;
+	this->ramPointer->increaseStackSize(this->byteSize);
 }
 
 DataElement::~DataElement()
 {
-	stackPointer->decreaseStackSize(byteSize);
+	ramPointer->decreaseStackSize(byteSize);
 }
 
-Ram* DataElement::getStackpointer() const
+Ram* DataElement::getRampointer() const
 {
-	return stackPointer;
+	return ramPointer;
 }
 
 size_t DataElement::getByteSize() const
