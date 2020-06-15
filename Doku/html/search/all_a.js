@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['slice_18',['slice',['../classslice.html',1,'']]]
+  ['_7edataelement_26',['~DataElement',['../class_data_element.html#aab9a69f9f0e5959fe17843c4d537f273',1,'DataElement']]]
 ];

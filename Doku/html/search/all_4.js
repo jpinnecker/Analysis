@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['getbytesize_5',['getByteSize',['../class_data_element.html#acea6c0f4a8142529bb074cfec1d50127',1,'DataElement']]],
-  ['getline_6',['getLine',['../class_token_processor.html#a13e73c0472824844c4b3a38c2458b495',1,'TokenProcessor']]],
-  ['getrammax_7',['getRamMax',['../class_ram.html#a6e8553ead40c6f32d0ecb0758e2a6f21',1,'Ram']]],
-  ['getrampointer_8',['getRampointer',['../class_data_element.html#af44534813850d51558440f94773ab63a',1,'DataElement']]],
-  ['getstacksize_9',['getStackSize',['../class_ram.html#a7610af32ea7975124a37f1c5fed3c36f',1,'Ram']]]
+  ['increasestacksize_9',['increaseStackSize',['../class_ram.html#abec6b678561a28b9827c7e24d8aa6b06',1,'Ram']]],
+  ['incrementline_10',['incrementLine',['../class_token_processor.html#aa4cd62ede8a2b769205ab615908ed1f4',1,'TokenProcessor']]]
 ];
