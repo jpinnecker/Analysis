@@ -132,9 +132,6 @@ bodyline:
     | pointer ';' {
         tokenProcessor.processToken(sizeof(void*), "Pointer found... ");
     }
-//    | ARRAY {
-//         cout << " array found" << endl;
-//    }
 
 //Funktionsdefinitionen
 //TODO: TokenProcessor Anbindung
@@ -171,16 +168,6 @@ bodyline:
         tokenProcessor.incrementLine();
     }
 ;
-
-//Arrayregeln
-//array:
-//    IDENTIFIER arraybrackets
-//;
-//Brauchen wir, da es auch mehrdimensionale Arrays geben kann.
-//arraybrackets:
-//    '[' ']'
-//    | arraybrackets '[' ']'
-//;
 
 //Pointerregeln
 pointer:
