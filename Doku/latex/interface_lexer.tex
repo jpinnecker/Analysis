@@ -1,0 +1,48 @@
+\hypertarget{interface_lexer}{}\doxysection{Lexer Interface Reference}
+\label{interface_lexer}\index{Lexer@{Lexer}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_lexer_ac96ead5f39f36d6d2ca2da56dd3d5c4b}{b4\+\_\+locations\+\_\+if}} (\mbox{[}\mbox{[}@ @property\mbox{]}b4\+\_\+position\+\_\+type\mbox{[}start\+Pos();@ @property\mbox{]}b4\+\_\+position\+\_\+type\mbox{[}end\+Pos();\mbox{]}\mbox{]})\mbox{[}@ @property\mbox{]}b4\+\_\+yystype\mbox{[}semantic\+Val()
+\item 
+int \mbox{\hyperlink{interface_lexer_aa4a924949cb0aa89daed051413817bbf}{yylex}} ()
+\item 
+void \mbox{\hyperlink{interface_lexer_a42c02a312edfd1ff871354a310ab0459}{yyerror}} (\mbox{]}\mbox{\hyperlink{interface_lexer_ac96ead5f39f36d6d2ca2da56dd3d5c4b}{b4\+\_\+locations\+\_\+if}}(\mbox{[}b4\+\_\+location\+\_\+type\mbox{[}loc,\mbox{]}\mbox{]})\mbox{[}string s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Bison parser, automatically generated from {\ttfamily \mbox{]}m4\+\_\+bpatsubst(b4\+\_\+file\+\_\+name, \mbox{[}$^\wedge$\char`\"{}\textbackslash{}(.$\ast$\textbackslash{})\char`\"{}\$\mbox{]}, \mbox{[}\textbackslash{}1\mbox{]})\mbox{[}}.
+
+@author L\+A\+LR (1) parser skeleton written by Paolo Bonzini. Port to D language was done by Oliver Mangold. Communication interface between the scanner and the Bison-\/generated parser {\ttfamily \mbox{]}b4\+\_\+parser\+\_\+class\mbox{[}}. 
+
+Definition at line 48 of file lalr1.\+d.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interface_lexer_ac96ead5f39f36d6d2ca2da56dd3d5c4b}\label{interface_lexer_ac96ead5f39f36d6d2ca2da56dd3d5c4b}} 
+\index{Lexer@{Lexer}!b4\_locations\_if@{b4\_locations\_if}}
+\index{b4\_locations\_if@{b4\_locations\_if}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{b4\_locations\_if()}{b4\_locations\_if()}}
+{\footnotesize\ttfamily Lexer\+::b4\+\_\+locations\+\_\+if (\begin{DoxyParamCaption}\item[{\mbox{[}\mbox{[}@ @property\mbox{]} b4\+\_\+position\+\_\+typeb4\+\_\+position\+\_\+type\mbox{]}}]{\mbox{[}start\+Pos();@ @property\mbox{]}\mbox{[}end\+Pos();\mbox{]} }\end{DoxyParamCaption})}
+
+Method to retrieve the semantic value of the last scanned token. @return the semantic value of the last scanned token. ~\newline
+ \mbox{\Hypertarget{interface_lexer_a42c02a312edfd1ff871354a310ab0459}\label{interface_lexer_a42c02a312edfd1ff871354a310ab0459}} 
+\index{Lexer@{Lexer}!yyerror@{yyerror}}
+\index{yyerror@{yyerror}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{yyerror()}{yyerror()}}
+{\footnotesize\ttfamily void Lexer\+::yyerror (\begin{DoxyParamCaption}\item[{\mbox{]}\mbox{\hyperlink{interface_lexer_ac96ead5f39f36d6d2ca2da56dd3d5c4b}{b4\+\_\+locations\+\_\+if}}(\mbox{[}b4\+\_\+location\+\_\+type\mbox{[}loc,\mbox{]}\mbox{]})\mbox{[}string}]{s }\end{DoxyParamCaption})}
+
+Entry point for error reporting. Emits an error \mbox{]}b4\+\_\+locations\+\_\+if(\mbox{[}referring to the given location \mbox{]})\mbox{[}in a user-\/defined way. \mbox{]}b4\+\_\+locations\+\_\+if(\mbox{[}\mbox{[} @param loc The location of the element to which the error message is related\mbox{]}\mbox{]})\mbox{[} @param s The string for the error message. ~\newline
+ \mbox{\Hypertarget{interface_lexer_aa4a924949cb0aa89daed051413817bbf}\label{interface_lexer_aa4a924949cb0aa89daed051413817bbf}} 
+\index{Lexer@{Lexer}!yylex@{yylex}}
+\index{yylex@{yylex}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{yylex()}{yylex()}}
+{\footnotesize\ttfamily int Lexer\+::yylex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Entry point for the scanner. Returns the token identifier corresponding to the next token and prepares to return the semantic value \mbox{]}b4\+\_\+locations\+\_\+if(\mbox{[}and beginning/ending positions \mbox{]})\mbox{[}of the token. @return the token identifier corresponding to the next token. 
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Analysis/data/skeletons/lalr1.\+d\end{DoxyCompactItemize}

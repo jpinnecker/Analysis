@@ -1,0 +1,177 @@
+First of all you should have the necessary files. Custom Build rules are separated into a file triplet of {\ttfamily .xml}, {\ttfamily .targets} and {\ttfamily .props}.
+
+You find the custom build rules for win\+\_\+flex\+\_\+bison in the {\bfseries{custom\+\_\+build\+\_\+rules}} directory of the win\+\_\+flex\+\_\+bison archive.
+
+You may choose to install one of the following rule set
+
+
+\begin{DoxyItemize}
+\item the combined rules -\/ \href{https://sourceforge.net/projects/winflexbison/files/win_flex_bison_custom_build_rules.zip/download}{\texttt{ alternative download}}\+:
+\begin{DoxyItemize}
+\item \href{win_flex_bison/win_flex_bison_custom_build.props}{\texttt{ win\+\_\+flex\+\_\+bison\+\_\+custom\+\_\+build.\+props}}
+\item \href{win_flex_bison/win_flex_bison_custom_build.targets}{\texttt{ win\+\_\+flex\+\_\+bison\+\_\+custom\+\_\+build.\+targets}}
+\item \href{win_flex_bison/win_flex_bison_custom_build.xml}{\texttt{ win\+\_\+flex\+\_\+bison\+\_\+custom\+\_\+build.\+xml}}
+\end{DoxyItemize}
+\item flex only rules -\/ \href{https://sourceforge.net/projects/winflexbison/files/win_flex_custom_build_rules.zip/download}{\texttt{ alternative download}}\+:
+\begin{DoxyItemize}
+\item \href{win_flex_only/win_flex_custom_build.props}{\texttt{ win\+\_\+flex\+\_\+custom\+\_\+build.\+props}}
+\item \href{win_flex_only/win_flex_custom_build.targets}{\texttt{ win\+\_\+flex\+\_\+custom\+\_\+build.\+targets}}
+\item \href{win_flex_only/win_flex_custom_build.xml}{\texttt{ win\+\_\+flex\+\_\+custom\+\_\+build.\+xml}}
+\end{DoxyItemize}
+\item bison only rules -\/ \href{https://sourceforge.net/projects/winflexbison/files/win_bison_custom_build_rules.zip/download}{\texttt{ alternative download}}\+:
+\begin{DoxyItemize}
+\item \href{win_bison_only/win_bison_custom_build.props}{\texttt{ win\+\_\+bison\+\_\+custom\+\_\+build.\+props}}
+\item \href{win_bison_only/win_bison_custom_build.targets}{\texttt{ win\+\_\+bison\+\_\+custom\+\_\+build.\+targets}}
+\item \href{win_bison_only/win_bison_custom_build.xml}{\texttt{ win\+\_\+bison\+\_\+custom\+\_\+build.\+xml}}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+This documentation uses the combined rule-\/set but can be used for all rule-\/sets.
+
+\DoxyHorRuler{0}
+
+
+Launch Visual Studio and open an V\+C/\+V\+C++ project. Open context menu for project item in Solution Explorer panel and select \char`\"{}$\ast$$\ast$\+Build Customizations...$\ast$$\ast$\char`\"{} menu item. (Note\+: newer VS versions have this below sub-\/menu \char`\"{}$\ast$$\ast$\+Build Dependencies...$\ast$$\ast$\char`\"{}.)
+
+
+
+\DoxyHorRuler{0}
+
+
+In popup dialog \char`\"{}\+Visual C++ Build Customization Files\char`\"{} press \char`\"{}$\ast$$\ast$\+Find Existing...$\ast$$\ast$\char`\"{} button.
+
+
+
+\DoxyHorRuler{0}
+
+
+In Open File dialog select \char`\"{}$\ast$$\ast$win\+\_\+flex\+\_\+bison\+\_\+custom\+\_\+build.\+targets$\ast$$\ast$\char`\"{} file and press \char`\"{}\+Open\char`\"{}. (Note\+: you may have to switch the file filter to \char`\"{}($\ast$.$\ast$) all files\char`\"{}.)
+
+\DoxyHorRuler{0}
+
+
+You will see \char`\"{}\+Add Search Path?\char`\"{} message box, press \char`\"{}\+Yes\char`\"{}.
+
+
+
+\DoxyHorRuler{0}
+
+
+In \char`\"{}\+Visual C++ Build Customization Files\char`\"{} dialog check just added item {\bfseries{win\+\_\+flex\+\_\+bison\+\_\+custom\+\_\+build}} and press \char`\"{}\+O\+K\char`\"{}.
+
+
+
+\DoxyHorRuler{0}
+
+
+Now you can add flex and bison files to the project...
+
+
+
+... and build. In build output you should see something like this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1>-\/-\/-\/-\/-\/-\/ Rebuild All started: Project: ConsoleApplication1, Configuration: Debug Win32 -\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{1>  Process sample bison file}
+\DoxyCodeLine{1>  Process sample flex file}
+\DoxyCodeLine{1>  stdafx.cpp}
+\DoxyCodeLine{1>  ConsoleApplication1.cpp}
+\DoxyCodeLine{1>  Generating Code...}
+\DoxyCodeLine{1>  ConsoleApplication1.vcxproj -\/> C:\(\backslash\)Users\(\backslash\)ConsoleApplication1\(\backslash\)Debug\(\backslash\)ConsoleApplication1.exe}
+\DoxyCodeLine{========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========}
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+For {\bfseries{sample.\+y}} bison file there are two output files\+: {\bfseries{sample.\+tab.\+h}} and {\bfseries{sample.\+tab.\+cpp}}. For {\bfseries{sample.\+l}} flex file you\textquotesingle{}ll got {\bfseries{sample.\+flex.\+cpp}}.
+
+Now you can add them to the project and build. ({\itshape Don\textquotesingle{}t forget to exclude cpp files from using precompiled headers})
+
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1>-\/-\/-\/-\/-\/-\/ Build started: Project: ConsoleApplication1, Configuration: Debug Win32 -\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{1>  Process sample bison file}
+\DoxyCodeLine{1>  Process sample flex file}
+\DoxyCodeLine{1>  sample.tab.cpp}
+\DoxyCodeLine{1>  sample.flex.cpp}
+\DoxyCodeLine{1>  Generating Code...}
+\DoxyCodeLine{1>  ConsoleApplication1.vcxproj -\/> C:\(\backslash\)Users\(\backslash\)ConsoleApplication1\(\backslash\)Debug\(\backslash\)ConsoleApplication1.exe}
+\DoxyCodeLine{========== Build: 1 succeeded, 0 failed, 0 up-\/to-\/date, 0 skipped ==========}
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+If your flex/bison file is incorrect and you\textquotesingle{}ve got an error. But you don\textquotesingle{}t see actual error message, something like this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1>-\/-\/-\/-\/-\/-\/ Build started: Project: ConsoleApplication2, Configuration: Debug Win32 -\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{1>  Process "grammar.y" bison file}
+\DoxyCodeLine{1>C:...\(\backslash\)custom\_build\_rules\(\backslash\)win\_flex\_bison\_custom\_build.targets(55,5): error MSB3721: The command "}
+\DoxyCodeLine{1>C:...\(\backslash\)custom\_build\_rules\(\backslash\)win\_flex\_bison\_custom\_build.targets(55,5): error MSB3721: start /B /WAIT /D "C:...\(\backslash\)ConsoleApplication2\(\backslash\)ConsoleApplication2\(\backslash\)" win\_bison.exe -\/-\/output="grammar.tab.cpp" -\/-\/defines="grammar.tab.h" -\/-\/graph="1.dot" "grammar.y"}
+\DoxyCodeLine{1>C:...\(\backslash\)custom\_build\_rules\(\backslash\)win\_flex\_bison\_custom\_build.targets(55,5): error MSB3721: exit /b \%errorlevel\%" exited with code 1.}
+\DoxyCodeLine{========== Build: 0 succeeded, 1 failed, 0 up-\/to-\/date, 0 skipped ==========}
+\end{DoxyCode}
+
+
+You can change Build Output Verbosity from \char`\"{}\+Minimal\char`\"{} to \char`\"{}\+Normal\char`\"{} in \char`\"{}\+Options\char`\"{} dialog
+
+
+
+Then you will see more detailed output\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1>BisonTarget:}
+\DoxyCodeLine{1>  Process "grammar.y" bison file}
+\DoxyCodeLine{1>  grammar.y:51.1-\/4: error: invalid directive: '\%sdw'}
+\DoxyCodeLine{1>C:...\(\backslash\)custom\_build\_rules\(\backslash\)win\_flex\_bison\_custom\_build.targets(55,5): error MSB3721: The command "}
+\DoxyCodeLine{1>C:...\(\backslash\)custom\_build\_rules\(\backslash\)win\_flex\_bison\_custom\_build.targets(55,5): error MSB3721: start /B /WAIT /D "C:...\(\backslash\)ConsoleApplication2\(\backslash\)" win\_bison.exe -\/-\/output="grammar.tab.cpp" -\/-\/defines="grammar.tab.h" -\/-\/graph="1.dot" "grammar.y"}
+\DoxyCodeLine{1>C:...\(\backslash\)custom\_build\_rules\(\backslash\)win\_flex\_bison\_custom\_build.targets(55,5): error MSB3721: exit /b \%errorlevel\%" exited with code 1.}
+\DoxyCodeLine{1>}
+\DoxyCodeLine{1>Build FAILED.}
+\DoxyCodeLine{1>}
+\DoxyCodeLine{1>Time Elapsed 00:00:01.21}
+\DoxyCodeLine{========== Build: 0 succeeded, 1 failed, 0 up-\/to-\/date, 0 skipped ==========}
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+
+
+Also you can tune some flex/bison options in files properties dialog\+:
+
+  
+
+\DoxyHorRuler{0}
+
+
+To debug your scanner or parser you can set break points right into {\bfseries{sample.\+y}} or {\bfseries{sample.\+l}} code.
+
+
+
+\DoxyHorRuler{0}
+
+
+To use the Visual C++ Code editor for Flex/\+Bison files instead of the text editor adjust your editor settings as follows\+:
+
+
+\begin{DoxyItemize}
+\item click {\bfseries{Options}} on the {\bfseries{Tools}} menu, expand the {\bfseries{Text Editor}} node and select {\bfseries{File Extension}}
+\item type extension $\ast$$\ast${\ttfamily l}$\ast$$\ast$ in the {\bfseries{Extension}} field and choose {\bfseries{Microsoft Visual C++}} in the {\bfseries{Editor}} drop-\/down field, click {\bfseries{Add}}
+\item do the same for the extension $\ast$$\ast${\ttfamily y}$\ast$$\ast$
+\end{DoxyItemize}
+
+You now have syntax highlighting, code-\/completion and show definition options in your Flex/\+Bison source.
+
+\DoxyHorRuler{0}
+
+
+Enjoy! 

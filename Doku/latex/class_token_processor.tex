@@ -1,0 +1,73 @@
+\hypertarget{class_token_processor}{}\doxysection{Token\+Processor Class Reference}
+\label{class_token_processor}\index{TokenProcessor@{TokenProcessor}}
+
+
+{\ttfamily \#include $<$Token\+Processor.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_token_processor_aa4cd62ede8a2b769205ab615908ed1f4}{increment\+Line}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_token_processor_a13e73c0472824844c4b3a38c2458b495}{get\+Line}} ()
+\item 
+void \mbox{\hyperlink{class_token_processor_a7769718d270638eead851baf495180da}{process\+Token}} (size\+\_\+t byte\+Size, string message)
+\item 
+void \mbox{\hyperlink{class_token_processor_a93940c82b8ba018c435b7897a4ce4830}{print\+Results}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse zur Verarbeitung der gefundenen Tokens. 
+
+Definition at line 10 of file Token\+Processor.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_token_processor_a13e73c0472824844c4b3a38c2458b495}\label{class_token_processor_a13e73c0472824844c4b3a38c2458b495}} 
+\index{TokenProcessor@{TokenProcessor}!getLine@{getLine}}
+\index{getLine@{getLine}!TokenProcessor@{TokenProcessor}}
+\doxysubsubsection{\texorpdfstring{getLine()}{getLine()}}
+{\footnotesize\ttfamily unsigned int Token\+Processor\+::get\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Hat den momentanen Zustand des line\+Counters als Rückgabewert. 
+
+Definition at line 18 of file Token\+Processor.\+cpp.
+
+\mbox{\Hypertarget{class_token_processor_aa4cd62ede8a2b769205ab615908ed1f4}\label{class_token_processor_aa4cd62ede8a2b769205ab615908ed1f4}} 
+\index{TokenProcessor@{TokenProcessor}!incrementLine@{incrementLine}}
+\index{incrementLine@{incrementLine}!TokenProcessor@{TokenProcessor}}
+\doxysubsubsection{\texorpdfstring{incrementLine()}{incrementLine()}}
+{\footnotesize\ttfamily void Token\+Processor\+::increment\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Inkrementiert den line\+Counter. Wird von dem Parser aufgerufen und kann deshalb nicht über increment\+Counter implementiert werden. 
+
+Definition at line 13 of file Token\+Processor.\+cpp.
+
+\mbox{\Hypertarget{class_token_processor_a93940c82b8ba018c435b7897a4ce4830}\label{class_token_processor_a93940c82b8ba018c435b7897a4ce4830}} 
+\index{TokenProcessor@{TokenProcessor}!printResults@{printResults}}
+\index{printResults@{printResults}!TokenProcessor@{TokenProcessor}}
+\doxysubsubsection{\texorpdfstring{printResults()}{printResults()}}
+{\footnotesize\ttfamily void Token\+Processor\+::print\+Results (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Ausgabe der Ergebnisse. 
+
+Definition at line 33 of file Token\+Processor.\+cpp.
+
+\mbox{\Hypertarget{class_token_processor_a7769718d270638eead851baf495180da}\label{class_token_processor_a7769718d270638eead851baf495180da}} 
+\index{TokenProcessor@{TokenProcessor}!processToken@{processToken}}
+\index{processToken@{processToken}!TokenProcessor@{TokenProcessor}}
+\doxysubsubsection{\texorpdfstring{processToken()}{processToken()}}
+{\footnotesize\ttfamily void Token\+Processor\+::process\+Token (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size,  }\item[{string}]{message }\end{DoxyParamCaption})}
+
+Wird vom Parser aufgerufen. Die übergebene message wird ausgegeben. Anhand von byte\+Size wird ein neues Datenelement auf den ram\+Stack gelegt. 
+
+Definition at line 26 of file Token\+Processor.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Analysis/Token\+Processor.\+h\item 
+Analysis/Token\+Processor.\+cpp\end{DoxyCompactItemize}

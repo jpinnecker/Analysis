@@ -1,0 +1,73 @@
+\hypertarget{class_ram}{}\doxysection{Ram Class Reference}
+\label{class_ram}\index{Ram@{Ram}}
+
+
+{\ttfamily \#include $<$Ram.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ram_abec6b678561a28b9827c7e24d8aa6b06}{increase\+Stack\+Size}} (size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{class_ram_a2c6b0496e3e5e4fdfc8d955ec3003133}{decrease\+Stack\+Size}} (size\+\_\+t size)
+\item 
+unsigned long long \mbox{\hyperlink{class_ram_a7610af32ea7975124a37f1c5fed3c36f}{get\+Stack\+Size}} () const
+\item 
+unsigned long long \mbox{\hyperlink{class_ram_a6e8553ead40c6f32d0ecb0758e2a6f21}{get\+Ram\+Max}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Die Klasse um den Speicherbedarf zu verfolgen. 
+
+Definition at line 6 of file Ram.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ram_a2c6b0496e3e5e4fdfc8d955ec3003133}\label{class_ram_a2c6b0496e3e5e4fdfc8d955ec3003133}} 
+\index{Ram@{Ram}!decreaseStackSize@{decreaseStackSize}}
+\index{decreaseStackSize@{decreaseStackSize}!Ram@{Ram}}
+\doxysubsubsection{\texorpdfstring{decreaseStackSize()}{decreaseStackSize()}}
+{\footnotesize\ttfamily void Ram\+::decrease\+Stack\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Verringert stack\+Size um size. Ruft update\+Ram\+Size auf. Sollte nur vom Destruktor des Data\+Elements aufgerufen werden. 
+
+Definition at line 16 of file Ram.\+cpp.
+
+\mbox{\Hypertarget{class_ram_a6e8553ead40c6f32d0ecb0758e2a6f21}\label{class_ram_a6e8553ead40c6f32d0ecb0758e2a6f21}} 
+\index{Ram@{Ram}!getRamMax@{getRamMax}}
+\index{getRamMax@{getRamMax}!Ram@{Ram}}
+\doxysubsubsection{\texorpdfstring{getRamMax()}{getRamMax()}}
+{\footnotesize\ttfamily unsigned long long Ram\+::get\+Ram\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Hat ram\+Max als Rückgabewert. 
+
+Definition at line 27 of file Ram.\+cpp.
+
+\mbox{\Hypertarget{class_ram_a7610af32ea7975124a37f1c5fed3c36f}\label{class_ram_a7610af32ea7975124a37f1c5fed3c36f}} 
+\index{Ram@{Ram}!getStackSize@{getStackSize}}
+\index{getStackSize@{getStackSize}!Ram@{Ram}}
+\doxysubsubsection{\texorpdfstring{getStackSize()}{getStackSize()}}
+{\footnotesize\ttfamily unsigned long long Ram\+::get\+Stack\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Hat stack\+Size als Rückgabewert. 
+
+Definition at line 22 of file Ram.\+cpp.
+
+\mbox{\Hypertarget{class_ram_abec6b678561a28b9827c7e24d8aa6b06}\label{class_ram_abec6b678561a28b9827c7e24d8aa6b06}} 
+\index{Ram@{Ram}!increaseStackSize@{increaseStackSize}}
+\index{increaseStackSize@{increaseStackSize}!Ram@{Ram}}
+\doxysubsubsection{\texorpdfstring{increaseStackSize()}{increaseStackSize()}}
+{\footnotesize\ttfamily void Ram\+::increase\+Stack\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Erhöht stack\+Size um size. Ruft update\+Ram\+Size auf. Sollte nur vom Konstruktor des Data\+Elements aufgerufen werden. 
+
+Definition at line 10 of file Ram.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Analysis/Ram.\+h\item 
+Analysis/Ram.\+cpp\end{DoxyCompactItemize}

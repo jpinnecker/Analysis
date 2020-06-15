@@ -1,0 +1,84 @@
+\hypertarget{class_data_element}{}\doxysection{Data\+Element Class Reference}
+\label{class_data_element}\index{DataElement@{DataElement}}
+
+
+{\ttfamily \#include $<$Data\+Element.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_element_aa3ac26396c0e8af9bc478a8f6fe2a675}{Data\+Element}} (size\+\_\+t byte\+Size, \mbox{\hyperlink{class_ram}{Ram}} $\ast$ram\+Pointer)
+\item 
+\mbox{\hyperlink{class_data_element_a99a27b5716d81718639f06d0bacae83a}{Data\+Element}} (const \mbox{\hyperlink{class_data_element}{Data\+Element}} \&)=delete
+\item 
+\mbox{\hyperlink{class_data_element_aab9a69f9f0e5959fe17843c4d537f273}{$\sim$\+Data\+Element}} ()
+\item 
+\mbox{\hyperlink{class_ram}{Ram}} $\ast$ \mbox{\hyperlink{class_data_element_af44534813850d51558440f94773ab63a}{get\+Rampointer}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{class_data_element_acea6c0f4a8142529bb074cfec1d50127}{get\+Byte\+Size}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse zur Repräsentation der gefundenen Tokens und deren Größe. 
+
+Definition at line 7 of file Data\+Element.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_data_element_aa3ac26396c0e8af9bc478a8f6fe2a675}\label{class_data_element_aa3ac26396c0e8af9bc478a8f6fe2a675}} 
+\index{DataElement@{DataElement}!DataElement@{DataElement}}
+\index{DataElement@{DataElement}!DataElement@{DataElement}}
+\doxysubsubsection{\texorpdfstring{DataElement()}{DataElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Data\+Element\+::\+Data\+Element (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size,  }\item[{\mbox{\hyperlink{class_ram}{Ram}} $\ast$}]{ram\+Pointer }\end{DoxyParamCaption})}
+
+Der Konstruktor initialisiert die Attribute mit den Parametern. Daraufhin wird increase\+Stack\+Size des vom ram\+Pointer ausgewiesenen \mbox{\hyperlink{class_ram}{Ram}} aufgerufen und die stack\+Size dessen um byte\+Size erhöht. 
+
+Definition at line 4 of file Data\+Element.\+cpp.
+
+\mbox{\Hypertarget{class_data_element_a99a27b5716d81718639f06d0bacae83a}\label{class_data_element_a99a27b5716d81718639f06d0bacae83a}} 
+\index{DataElement@{DataElement}!DataElement@{DataElement}}
+\index{DataElement@{DataElement}!DataElement@{DataElement}}
+\doxysubsubsection{\texorpdfstring{DataElement()}{DataElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Data\+Element\+::\+Data\+Element (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data_element}{Data\+Element}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+Um die Daten konsistent zu halten darf der Kopierkonstruktor nicht versehentlich verwendet werden. Da das leicht geschehen kann, wird er hier verboten. \mbox{\Hypertarget{class_data_element_aab9a69f9f0e5959fe17843c4d537f273}\label{class_data_element_aab9a69f9f0e5959fe17843c4d537f273}} 
+\index{DataElement@{DataElement}!````~DataElement@{$\sim$DataElement}}
+\index{````~DataElement@{$\sim$DataElement}!DataElement@{DataElement}}
+\doxysubsubsection{\texorpdfstring{$\sim$DataElement()}{~DataElement()}}
+{\footnotesize\ttfamily Data\+Element\+::$\sim$\+Data\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Der Destruktor ruft decrease\+Stack\+Size des vom ram\+Pointer ausgewiesenen \mbox{\hyperlink{class_ram}{Ram}} auf und dessen stack\+Size wird um byte\+Size verringert. 
+
+Definition at line 11 of file Data\+Element.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_element_acea6c0f4a8142529bb074cfec1d50127}\label{class_data_element_acea6c0f4a8142529bb074cfec1d50127}} 
+\index{DataElement@{DataElement}!getByteSize@{getByteSize}}
+\index{getByteSize@{getByteSize}!DataElement@{DataElement}}
+\doxysubsubsection{\texorpdfstring{getByteSize()}{getByteSize()}}
+{\footnotesize\ttfamily size\+\_\+t Data\+Element\+::get\+Byte\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter für byte\+Size. 
+
+Definition at line 21 of file Data\+Element.\+cpp.
+
+\mbox{\Hypertarget{class_data_element_af44534813850d51558440f94773ab63a}\label{class_data_element_af44534813850d51558440f94773ab63a}} 
+\index{DataElement@{DataElement}!getRampointer@{getRampointer}}
+\index{getRampointer@{getRampointer}!DataElement@{DataElement}}
+\doxysubsubsection{\texorpdfstring{getRampointer()}{getRampointer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ram}{Ram}} $\ast$ Data\+Element\+::get\+Rampointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter für ram\+Pointer. 
+
+Definition at line 16 of file Data\+Element.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Analysis/Data\+Element.\+h\item 
+Analysis/Data\+Element.\+cpp\end{DoxyCompactItemize}
