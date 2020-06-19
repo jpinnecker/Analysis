@@ -225,7 +225,25 @@ int main(int, char**) {
   // Open a file handle to a particular file:
   // TODO: Change the file from hardcoded to one of users choosing
   FILE *myfile;
-  errno_t err = fopen_s(&myfile, "../CExampleProgram/Source.c", "r");
+
+  string pfad;
+
+  // the user give the File-pfad to be analysed  
+  cout << "Geben sie den Datei-Pfad ";
+  getline(cin, pfad);
+
+
+  if (pfad.empty())
+    cout << "Geben sie einen richtigen pfad";
+    errno_t err = fopen_s(&myfile, pfad, "r");
+
+    std::string str = "std::string to const char*";
+
+	char const *c = str.data();
+	std::cout << c;
+
+
+  //errno_t err = fopen_s(&myfile, "../CExampleProgram/Source.c", "r");
   // Make sure it is valid:
   if (!myfile) {
     cout << "I can't open the file!" << endl;
@@ -243,3 +261,4 @@ int main(int, char**) {
 void yyerror(const char *s) {
   cout << "Parse error on line: " << tokenProcessor.getLine() << " - Message: " << s << endl;
 }
+
