@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-#include <stack>
-#include "DataElement.h"
+#include <map>
+#include <iterator>
+#include "FunctionElement.h"
 using namespace std;
 
 /**
@@ -11,14 +12,14 @@ class TokenProcessor
 {
 private:
 	/**
-		Der TokenProcessor besitzt einen Ram::Ram, der dazu verwendet wird den benötigten Speicherbedarf abzubilden.
+		Eine Map zum Speichern der Funktionen und deren Attribute.
 	*/
-	Ram ram;
+	map<string, FunctionElement*> functionMap;
 	/**
-		Der ramStack dient dazu einen Stack an automatischen Variablen zu simulieren.
-		Beim Entfernen der Stackelemente (ramStack.pop()) muss darauf geachtet werden zuerst ein delete auf die dazugehörigen DataElements auszuführen.
+		Der Iterator merkt sich bei der Registrierung einer Funktion die Stelle in der Map.
+		Somit sparen wir uns das Suchen nach der Funktion bei der Definition.
 	*/
-	stack<DataElement*> ramStack;
+	map<string, FunctionElement*>::iterator functionIterator;
 
 	/**
 		Der lineCounter dient dazu zu verfolgen bei welcher Zeile ein Token gefunden wurde. Das ist hilfreich bei der Fehlersuche.
@@ -62,9 +63,16 @@ public:
 	unsigned int getLine();
 	/**
 		Wird vom Parser aufgerufen. Die übergebene message wird ausgegeben.
-		Anhand von byteSize wird ein neues Datenelement auf den ramStack gelegt.
+		Es wird increaseStackSize(byteSize) des Rams der momentanen Funktion aufgerufen
 	*/
 	void processToken(size_t byteSize, string message);
+	void processFunction(string fnctName);
+	/**
+		Wird vom Parser aufgerufen, wenn eine neue Funktionsdefinition gefunden wurde.
+		Der Name und die Größe der Rückgabe werden gespeichert.
+	*/
+	void registerFunction(size_t returnSize, string fnctName);
+
 	/**
 		Ausgabe der Ergebnisse.
 	*/

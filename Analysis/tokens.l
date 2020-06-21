@@ -3,6 +3,7 @@
   short longcounter = 0;
 %}
 %option noyywrap
+%x RETURN_SECTION
 %x COMMENT_SECTION
 %x COMMENT_LINE
 %x STRING
@@ -216,14 +217,17 @@ int						;
 	}
 }
 
+return					BEGIN RETURN_SECTION;
+<RETURN_SECTION>{
+\;						BEGIN INITIAL;
+.						;
+}
 
 	/*||---------------------------------||
 	  ||        Einzelne Tokens          ||
 	  ||---------------------------------||*/
 
-
-struct			        return STRUCT;
-
+void					return VOID;
 ("const"|"volatile"|"restrict") ;
 [a-zA-Z_][a-zA-Z0-9_]*  yylval.string = _strdup(yytext); return IDENTIFIER;
 \*						return '*';
@@ -246,8 +250,6 @@ struct			        return STRUCT;
 \/						return '/';
 \[						return '[';
 \]						return ']';
-while					return WHILE;
-if						return IF;
-void					return VOID;
+\,						return ',';
 [ \t.,]                 ; //Ignorierbare Zeichen
 %%

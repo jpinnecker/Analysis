@@ -157,14 +157,16 @@
     </Bison>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataElement.cpp" />
+    <ClCompile Include="StackElement.cpp" />
+    <ClCompile Include="FunctionElement.cpp" />
     <ClCompile Include="grammar.tab.cpp" />
     <ClCompile Include="Ram.cpp" />
     <ClCompile Include="TokenProcessor.cpp" />
     <ClCompile Include="tokens.flex.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DataElement.h" />
+    <ClInclude Include="StackElement.h" />
+    <ClInclude Include="FunctionElement.h" />
     <ClInclude Include="grammar.tab.h" />
     <ClInclude Include="Ram.h" />
     <ClInclude Include="TokenProcessor.h" />

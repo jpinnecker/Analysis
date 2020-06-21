@@ -26,19 +26,13 @@
     char* string; //remember to free!!!
     int integer;
 }
+//Datatypes
 %token <string> IDENTIFIER INTID LONGID LONGLONGID LONGDOUBLEID DOUBLEID SHORTID CHARID FLOATID
 %token <integer> INUMBER
-
+%token POINTER VOID
 
 // Constant String-Tokens
-%token ENDL CSTRING
-
-// Datatypes
-%token POINTER VOID
-%token STRUCT
-
-// Statement 
-%token IF WHILE
+%token ENDL CSTRING RETURN
 
 // Right-Side Values
 %token FNUMBER CHARACTER
@@ -57,29 +51,32 @@ bodyline:
     ||  Einfache Deklinationen   ||
     ||---------------------------||*/
 
-    integer ';' {
+    integer {
         tokenProcessor.processToken(sizeof(int), "Integer found... ");
     }
-    | double ';' {
+    | double {
         tokenProcessor.processToken(sizeof(double), "Double found... ");
     }
-    | long_double ';' {
+    | long_double {
         tokenProcessor.processToken(sizeof(long double), "Long Double found... ");
     }
-    | floating ';' {
+    | floating {
         tokenProcessor.processToken(sizeof(float), "Float found... ");
     }
-    | character ';' {
+    | character {
         tokenProcessor.processToken(sizeof(char), "Character found... ");
     }
-    | long ';' {
+    | long {
         tokenProcessor.processToken(sizeof(long), "Long found... ");
     }
-    | long_long ';' {
+    | long_long {
         tokenProcessor.processToken(sizeof(long long), "Long Long found... ");
     }
-    | short ';' {
+    | short {
         tokenProcessor.processToken(sizeof(short), "Short found... ");
+    }
+    | pointer {
+        tokenProcessor.processToken(sizeof(void*), "Pointer found... ");
     }
 
 
@@ -87,76 +84,114 @@ bodyline:
     ||    Array Deklinationen    ||
     ||---------------------------||*/
 
-
-    | INTID '[' INUMBER ']' ';' {
+    | INTID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(int)*$3+sizeof(void*), "Integer array of length " + to_string($3) + " found... ");
         free($1);
     }
-    | DOUBLEID '[' INUMBER ']' ';' {
+    | DOUBLEID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(double)*$3+sizeof(void*), "Double array of length " + to_string($3) + " found... ");
         free($1);
     }
-    | LONGDOUBLEID '[' INUMBER ']' ';' {
+    | LONGDOUBLEID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(long double)*$3+sizeof(void*), "Long Double array of length " + to_string($3) + " found... ");
         free($1);
     }
-    | FLOATID '[' INUMBER ']' ';' {
+    | FLOATID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(float)*$3+sizeof(void*), "Floating array of length " + to_string($3) + " found... ");
         free($1);
     }
-    | CHARID '[' INUMBER ']' ';' {
+    | CHARID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(char)*$3+sizeof(void*), "Character array of length " + to_string($3) + " found... ");
         free($1);
     }
-    | LONGID '[' INUMBER ']' ';' {
+    | LONGID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(long)*$3+sizeof(void*), "Long array of length " + to_string($3) + " found... ");
         free($1);
     }
-    | LONGLONGID '[' INUMBER ']' ';' {
+    | LONGLONGID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(long long)*$3+sizeof(void*), "Long Long array of length " + to_string($3) + " found... ");
         free($1);
     }
-    | SHORTID '[' INUMBER ']' ';' {
+    | SHORTID '[' INUMBER ']' {
         tokenProcessor.processToken(sizeof(short)*$3+sizeof(void*), "Short array of length " + to_string($3) + " found... ");
         free($1);
     }
 
 
+/*  ||---------------------------||
+    ||   Funktionsdefinitionen   ||
+    ||---------------------------||*/
 
-    | IF {
-        cout << "if statement found" << endl;
-    }
-    | WHILE {
-        cout << "While statement found" << endl;
-    }
-    | pointer ';' {
-        tokenProcessor.processToken(sizeof(void*), "Pointer found... ");
-    }
-
-//Funktionsdefinitionen
-//TODO: TokenProcessor Anbindung
     | INTID '(' {
-        cout << "Funktion erkannt: " << $1 << endl; free($1);
-        ;
+        tokenProcessor.registerFunction(sizeof(int), $1);
+        free($1);
     }
-    | integer {
-        ;
+    | DOUBLEID '(' {
+        tokenProcessor.registerFunction(sizeof(double), $1);
+        free($1);
     }
-    | pointer {
-        ;
+    | LONGDOUBLEID '(' {
+        tokenProcessor.registerFunction(sizeof(long double), $1);
+        free($1);
     }
-    | ')' {
-        ;
+    | FLOATID '(' {
+        tokenProcessor.registerFunction(sizeof(float), $1);
+        free($1);
+    }
+    | CHARID '(' {
+        tokenProcessor.registerFunction(sizeof(char), $1);
+        free($1);
+    }
+    | LONGID '(' {
+        tokenProcessor.registerFunction(sizeof(long), $1);
+        free($1);
+    }
+    | LONGLONGID '(' {
+        tokenProcessor.registerFunction(sizeof(long long), $1);
+        free($1);
+    }
+    | SHORTID '(' {
+        tokenProcessor.registerFunction(sizeof(short), $1);
+        free($1);
+    }
+    | VOID IDENTIFIER '(' {
+        tokenProcessor.registerFunction(0, $2);
+        free($2);
+    }
+    
+
+/*  ||---------------------------||
+    ||      Funktionsaufruf      ||
+    ||---------------------------||*/
+
+    | IDENTIFIER '(' params ')' {
+        tokenProcessor.processFunction($1);
+        free($1);
     }
 
-//Ende eines Funktionsrumpfes
-//TODO: Unterscheidung zwischen statement und Funktionsdefinition
+
+    // Rumpfanfang
+    | ')' '{' {
+        ;
+    }
+    // Rumpfende
     | '}' {
+        ;
+    }
+    // Ende Parameterliste
+    | ')' {
         ;
     }
 
     | ENDL {
         tokenProcessor.incrementLine();
+    }
+
+    | ',' {
+        ;
+    }
+    | ';' {
+        ;
     }
 
 //Errorhandling
@@ -169,55 +204,65 @@ bodyline:
     }
 ;
 
+//Parameterliste
+params:
+    param ',' param
+    | param;
+param:
+    %empty
+    | IDENTIFIER {free($1);}
+    | POINTER
+;
+
 //Pointerregeln
 pointer:
-    POINTER
-    | POINTER IDENTIFIER
+    POINTER IDENTIFIER {free($2);}
     | POINTER '=' CSTRING
-    | POINTER '=' IDENTIFIER
-    | POINTER '=' '&' IDENTIFIER
+    | POINTER '=' IDENTIFIER {free($3);}
+    | POINTER '=' '&' IDENTIFIER {free($4);}
 ;
 
 //Definitionsregeln für Datentypen
 integer:
     INTID {free($1);}
     | INTID '=' INUMBER {free($1);}
-    | INTID '=' IDENTIFIER {free($1);}
+    | INTID '=' IDENTIFIER {free($1); free($3);}
 ;
 floating:
     FLOATID {free($1);}
     | FLOATID '=' FNUMBER {free($1);}
-    | FLOATID '=' IDENTIFIER {free($1);}
+    | FLOATID '=' IDENTIFIER {free($1); free($3);}
 ;
 double:
     DOUBLEID {free($1);}
+    | DOUBLEID '=' INUMBER {free($1);}
     | DOUBLEID '=' FNUMBER {free($1);}
-    | DOUBLEID '=' IDENTIFIER {free($1);}
+    | DOUBLEID '=' IDENTIFIER {free($1); free($3);}
 ;
 character:
     CHARID {free($1);}
     | CHARID '=' CHARACTER {free($1);}
-    | CHARID '=' IDENTIFIER {free($1);}
+    | CHARID '=' IDENTIFIER {free($1); free($3);}
 ;
 short:
     SHORTID {free($1);}
     | SHORTID '=' INUMBER {free($1);}
-    | SHORTID '=' IDENTIFIER {free($1);}
+    | SHORTID '=' IDENTIFIER {free($1); free($3);}
 ;
 long:
     LONGID {free($1);}
     | LONGID '=' INUMBER {free($1);}
-    | LONGID '=' IDENTIFIER {free($1);}
+    | LONGID '=' IDENTIFIER {free($1); free($3);}
 ;
 long_long:
     LONGLONGID {free($1);}
     | LONGLONGID '=' INUMBER {free($1);}
-    | LONGLONGID '=' IDENTIFIER {free($1);}
+    | LONGLONGID '=' IDENTIFIER {free($1); free($3);}
 ;
 long_double:
     LONGDOUBLEID {free($1);}
     | LONGDOUBLEID '=' FNUMBER {free($1);}
-    | LONGDOUBLEID '=' IDENTIFIER {free($1);}
+    | LONGDOUBLEID '=' IDENTIFIER {free($1); free($3);}
 ;
 %%
 

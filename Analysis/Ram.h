@@ -35,15 +35,16 @@ private:
 public:
 	/**
 		Erhöht stackSize um size. Ruft updateRamSize auf.
-		Sollte nur vom Konstruktor des DataElements aufgerufen werden.
 	*/
-	void increaseStackSize(size_t size);
+	void increaseStackSize(size_t byteSize);
 	/**
 		Verringert stackSize um size. Ruft updateRamSize auf.
-		Sollte nur vom Destruktor des DataElements aufgerufen werden.
 	*/
-	void decreaseStackSize(size_t size);
-
+	void decreaseStackSize(size_t byteSize);
+	/**
+		Füge byteSize ramMax hinzu.
+	*/
+	void increaseRamMax(size_t byteSize);
 	/**
 		Hat stackSize als Rückgabewert.
 	*/

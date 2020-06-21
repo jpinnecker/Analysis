@@ -1,0 +1,82 @@
+\hypertarget{class_function_element}{}\doxysection{Function\+Element Class Reference}
+\label{class_function_element}\index{FunctionElement@{FunctionElement}}
+
+
+{\ttfamily \#include $<$Function\+Element.\+h$>$}
+
+Inheritance diagram for Function\+Element\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_function_element}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_function_element_a718ff53d1a4f39760f78cfe9f40980ae}{Function\+Element}} (size\+\_\+t \mbox{\hyperlink{class_stack_element_ae238c3579461eaadc6895ad2ea82eecc}{byte\+Size}})
+\item 
+void \mbox{\hyperlink{class_function_element_a10f2abe59a49ff14b3b518a48a026bd0}{push\+Ram\+Stack}} (size\+\_\+t \mbox{\hyperlink{class_stack_element_ae238c3579461eaadc6895ad2ea82eecc}{byte\+Size}})
+\item 
+void \mbox{\hyperlink{class_function_element_a7d397e3ef9e36b7c818b7b689d820a46}{pop\+Ram\+Stack}} (size\+\_\+t \mbox{\hyperlink{class_stack_element_ae238c3579461eaadc6895ad2ea82eecc}{byte\+Size}})
+\item 
+\mbox{\hyperlink{class_ram}{Ram}} $\ast$ \mbox{\hyperlink{class_function_element_a17d68d70b3ea18c0c704d40d7de7439f}{get\+Ram}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Diese Klasse dient dem Verfolgen des Speicherbedarfs und später auch der Laufzeit einzelner Funktionen. 
+
+Definition at line 9 of file Function\+Element.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_function_element_a718ff53d1a4f39760f78cfe9f40980ae}\label{class_function_element_a718ff53d1a4f39760f78cfe9f40980ae}} 
+\index{FunctionElement@{FunctionElement}!FunctionElement@{FunctionElement}}
+\index{FunctionElement@{FunctionElement}!FunctionElement@{FunctionElement}}
+\doxysubsubsection{\texorpdfstring{FunctionElement()}{FunctionElement()}}
+{\footnotesize\ttfamily Function\+Element\+::\+Function\+Element (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size }\end{DoxyParamCaption})}
+
+Konstruktor mit Elementinitialisierungsliste. Erhöht ram um den Rückgabewert der Funktion. 
+
+Definition at line 3 of file Function\+Element.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_function_element_a17d68d70b3ea18c0c704d40d7de7439f}\label{class_function_element_a17d68d70b3ea18c0c704d40d7de7439f}} 
+\index{FunctionElement@{FunctionElement}!getRam@{getRam}}
+\index{getRam@{getRam}!FunctionElement@{FunctionElement}}
+\doxysubsubsection{\texorpdfstring{getRam()}{getRam()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ram}{Ram}} $\ast$ Function\+Element\+::get\+Ram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter für ram. 
+
+Definition at line 21 of file Function\+Element.\+cpp.
+
+\mbox{\Hypertarget{class_function_element_a7d397e3ef9e36b7c818b7b689d820a46}\label{class_function_element_a7d397e3ef9e36b7c818b7b689d820a46}} 
+\index{FunctionElement@{FunctionElement}!popRamStack@{popRamStack}}
+\index{popRamStack@{popRamStack}!FunctionElement@{FunctionElement}}
+\doxysubsubsection{\texorpdfstring{popRamStack()}{popRamStack()}}
+{\footnotesize\ttfamily void Function\+Element\+::pop\+Ram\+Stack (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size }\end{DoxyParamCaption})}
+
+Entferne \mbox{\hyperlink{class_stack_element}{Stack\+Element}} und verringere die Stack\+Size. 
+
+Definition at line 15 of file Function\+Element.\+cpp.
+
+\mbox{\Hypertarget{class_function_element_a10f2abe59a49ff14b3b518a48a026bd0}\label{class_function_element_a10f2abe59a49ff14b3b518a48a026bd0}} 
+\index{FunctionElement@{FunctionElement}!pushRamStack@{pushRamStack}}
+\index{pushRamStack@{pushRamStack}!FunctionElement@{FunctionElement}}
+\doxysubsubsection{\texorpdfstring{pushRamStack()}{pushRamStack()}}
+{\footnotesize\ttfamily void Function\+Element\+::push\+Ram\+Stack (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size }\end{DoxyParamCaption})}
+
+Lege ein neues \mbox{\hyperlink{class_stack_element}{Stack\+Element}} auf den ram\+Stack anhand von byte\+Size. Auch wird increase\+Stack\+Size(byte\+Size) aufgerufen um die Änderung im \mbox{\hyperlink{class_ram}{Ram}} festzuhalten. 
+
+Definition at line 9 of file Function\+Element.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Yoshi/source/repos/\+Analysis/\+Analysis/Function\+Element.\+h\item 
+C\+:/\+Users/\+Yoshi/source/repos/\+Analysis/\+Analysis/Function\+Element.\+cpp\end{DoxyCompactItemize}

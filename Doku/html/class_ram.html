@@ -93,10 +93,12 @@ $(document).ready(function(){initNavTree('class_ram.html',''); initResizable(); 
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abec6b678561a28b9827c7e24d8aa6b06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ram.html#abec6b678561a28b9827c7e24d8aa6b06">increaseStackSize</a> (size_t size)</td></tr>
-<tr class="separator:abec6b678561a28b9827c7e24d8aa6b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c6b0496e3e5e4fdfc8d955ec3003133"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ram.html#a2c6b0496e3e5e4fdfc8d955ec3003133">decreaseStackSize</a> (size_t size)</td></tr>
-<tr class="separator:a2c6b0496e3e5e4fdfc8d955ec3003133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29f3ac19749ee0d4dee4edf17aea8e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ram.html#ac29f3ac19749ee0d4dee4edf17aea8e7">increaseStackSize</a> (size_t byteSize)</td></tr>
+<tr class="separator:ac29f3ac19749ee0d4dee4edf17aea8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac48f860796ab95671f49d8a0d57ee8fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ram.html#ac48f860796ab95671f49d8a0d57ee8fe">decreaseStackSize</a> (size_t byteSize)</td></tr>
+<tr class="separator:ac48f860796ab95671f49d8a0d57ee8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6845f362d66c22b60c7b59a91638dd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ram.html#ab6845f362d66c22b60c7b59a91638dd2">increaseRamMax</a> (size_t byteSize)</td></tr>
+<tr class="separator:ab6845f362d66c22b60c7b59a91638dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7610af32ea7975124a37f1c5fed3c36f"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ram.html#a7610af32ea7975124a37f1c5fed3c36f">getStackSize</a> () const</td></tr>
 <tr class="separator:a7610af32ea7975124a37f1c5fed3c36f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e8553ead40c6f32d0ecb0758e2a6f21"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ram.html#a6e8553ead40c6f32d0ecb0758e2a6f21">getRamMax</a> () const</td></tr>
@@ -107,8 +109,8 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_ram_8h_source.html#l00006">6</a> of file <a class="el" href="_ram_8h_source.html">Ram.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2c6b0496e3e5e4fdfc8d955ec3003133"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c6b0496e3e5e4fdfc8d955ec3003133">&#9670;&nbsp;</a></span>decreaseStackSize()</h2>
+<a id="ac48f860796ab95671f49d8a0d57ee8fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac48f860796ab95671f49d8a0d57ee8fe">&#9670;&nbsp;</a></span>decreaseStackSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,12 +119,12 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Ram::decreaseStackSize </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
+          <td class="paramname"><em>byteSize</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Verringert stackSize um size. Ruft updateRamSize auf. Sollte nur vom Destruktor des DataElements aufgerufen werden. </p>
+<p>Verringert stackSize um size. Ruft updateRamSize auf. </p>
 
 <p class="definition">Definition at line <a class="el" href="_ram_8cpp_source.html#l00016">16</a> of file <a class="el" href="_ram_8cpp_source.html">Ram.cpp</a>.</p>
 
@@ -144,7 +146,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Hat ramMax als Rückgabewert. </p>
 
-<p class="definition">Definition at line <a class="el" href="_ram_8cpp_source.html#l00027">27</a> of file <a class="el" href="_ram_8cpp_source.html">Ram.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_ram_8cpp_source.html#l00032">32</a> of file <a class="el" href="_ram_8cpp_source.html">Ram.cpp</a>.</p>
 
 </div>
 </div>
@@ -164,12 +166,33 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Hat stackSize als Rückgabewert. </p>
 
+<p class="definition">Definition at line <a class="el" href="_ram_8cpp_source.html#l00027">27</a> of file <a class="el" href="_ram_8cpp_source.html">Ram.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab6845f362d66c22b60c7b59a91638dd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6845f362d66c22b60c7b59a91638dd2">&#9670;&nbsp;</a></span>increaseRamMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Ram::increaseRamMax </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>byteSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Füge byteSize ramMax hinzu. </p>
+
 <p class="definition">Definition at line <a class="el" href="_ram_8cpp_source.html#l00022">22</a> of file <a class="el" href="_ram_8cpp_source.html">Ram.cpp</a>.</p>
 
 </div>
 </div>
-<a id="abec6b678561a28b9827c7e24d8aa6b06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abec6b678561a28b9827c7e24d8aa6b06">&#9670;&nbsp;</a></span>increaseStackSize()</h2>
+<a id="ac29f3ac19749ee0d4dee4edf17aea8e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29f3ac19749ee0d4dee4edf17aea8e7">&#9670;&nbsp;</a></span>increaseStackSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,20 +201,20 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void Ram::increaseStackSize </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
+          <td class="paramname"><em>byteSize</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Erhöht stackSize um size. Ruft updateRamSize auf. Sollte nur vom Konstruktor des DataElements aufgerufen werden. </p>
+<p>Erhöht stackSize um size. Ruft updateRamSize auf. </p>
 
 <p class="definition">Definition at line <a class="el" href="_ram_8cpp_source.html#l00010">10</a> of file <a class="el" href="_ram_8cpp_source.html">Ram.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Analysis/<a class="el" href="_ram_8h_source.html">Ram.h</a></li>
-<li>Analysis/<a class="el" href="_ram_8cpp_source.html">Ram.cpp</a></li>
+<li>C:/Users/Yoshi/source/repos/Analysis/Analysis/<a class="el" href="_ram_8h_source.html">Ram.h</a></li>
+<li>C:/Users/Yoshi/source/repos/Analysis/Analysis/<a class="el" href="_ram_8cpp_source.html">Ram.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

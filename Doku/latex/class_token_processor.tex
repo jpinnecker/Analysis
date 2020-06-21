@@ -13,6 +13,11 @@ unsigned int \mbox{\hyperlink{class_token_processor_a13e73c0472824844c4b3a38c245
 \item 
 void \mbox{\hyperlink{class_token_processor_a7769718d270638eead851baf495180da}{process\+Token}} (size\+\_\+t byte\+Size, string message)
 \item 
+\mbox{\Hypertarget{class_token_processor_a83a2f47d0b53c8da973ccd87c88b5e7d}\label{class_token_processor_a83a2f47d0b53c8da973ccd87c88b5e7d}} 
+void {\bfseries process\+Function} (string fnct\+Name)
+\item 
+void \mbox{\hyperlink{class_token_processor_aad2d3250aa99a887417f860e2e3ded8f}{register\+Function}} (size\+\_\+t return\+Size, string fnct\+Name)
+\item 
 void \mbox{\hyperlink{class_token_processor_a93940c82b8ba018c435b7897a4ce4830}{print\+Results}} ()
 \end{DoxyCompactItemize}
 
@@ -20,7 +25,7 @@ void \mbox{\hyperlink{class_token_processor_a93940c82b8ba018c435b7897a4ce4830}{p
 \doxysubsection{Detailed Description}
 Klasse zur Verarbeitung der gefundenen Tokens. 
 
-Definition at line 10 of file Token\+Processor.\+h.
+Definition at line 11 of file Token\+Processor.\+h.
 
 
 
@@ -53,7 +58,7 @@ Definition at line 13 of file Token\+Processor.\+cpp.
 
 Ausgabe der Ergebnisse. 
 
-Definition at line 33 of file Token\+Processor.\+cpp.
+Definition at line 50 of file Token\+Processor.\+cpp.
 
 \mbox{\Hypertarget{class_token_processor_a7769718d270638eead851baf495180da}\label{class_token_processor_a7769718d270638eead851baf495180da}} 
 \index{TokenProcessor@{TokenProcessor}!processToken@{processToken}}
@@ -61,13 +66,23 @@ Definition at line 33 of file Token\+Processor.\+cpp.
 \doxysubsubsection{\texorpdfstring{processToken()}{processToken()}}
 {\footnotesize\ttfamily void Token\+Processor\+::process\+Token (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size,  }\item[{string}]{message }\end{DoxyParamCaption})}
 
-Wird vom Parser aufgerufen. Die übergebene message wird ausgegeben. Anhand von byte\+Size wird ein neues Datenelement auf den ram\+Stack gelegt. 
+Wird vom Parser aufgerufen. Die übergebene message wird ausgegeben. Es wird increase\+Stack\+Size(byte\+Size) des Rams der momentanen Funktion aufgerufen 
 
-Definition at line 26 of file Token\+Processor.\+cpp.
+Definition at line 23 of file Token\+Processor.\+cpp.
+
+\mbox{\Hypertarget{class_token_processor_aad2d3250aa99a887417f860e2e3ded8f}\label{class_token_processor_aad2d3250aa99a887417f860e2e3ded8f}} 
+\index{TokenProcessor@{TokenProcessor}!registerFunction@{registerFunction}}
+\index{registerFunction@{registerFunction}!TokenProcessor@{TokenProcessor}}
+\doxysubsubsection{\texorpdfstring{registerFunction()}{registerFunction()}}
+{\footnotesize\ttfamily void Token\+Processor\+::register\+Function (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{return\+Size,  }\item[{string}]{fnct\+Name }\end{DoxyParamCaption})}
+
+Wird vom Parser aufgerufen, wenn eine neue Funktionsdefinition gefunden wurde. Der Name und die Größe der Rückgabe werden gespeichert. 
+
+Definition at line 41 of file Token\+Processor.\+cpp.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Analysis/Token\+Processor.\+h\item 
-Analysis/Token\+Processor.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+Yoshi/source/repos/\+Analysis/\+Analysis/Token\+Processor.\+h\item 
+C\+:/\+Users/\+Yoshi/source/repos/\+Analysis/\+Analysis/Token\+Processor.\+cpp\end{DoxyCompactItemize}

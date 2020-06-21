@@ -19,6 +19,11 @@ void Ram::decreaseStackSize(size_t size)
 	updateRamSize();
 }
 
+void Ram::increaseRamMax(size_t byteSize)
+{
+	ramMax += byteSize;
+}
+
 unsigned long long Ram::getStackSize() const
 {
 	return stackSize;

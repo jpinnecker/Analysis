@@ -1,10 +1,12 @@
 var hierarchy =
 [
-    [ "DataElement", "class_data_element.html", null ],
     [ "FlexLexer", "class_flex_lexer.html", [
       [ "yyFlexLexer", "classyy_flex_lexer.html", null ]
     ] ],
     [ "Ram", "class_ram.html", null ],
+    [ "StackElement", "class_stack_element.html", [
+      [ "FunctionElement", "class_function_element.html", null ]
+    ] ],
     [ "TokenProcessor", "class_token_processor.html", null ],
     [ "yy_buffer_state", "structyy__buffer__state.html", null ],
     [ "yy_trans_info", "structyy__trans__info.html", null ],

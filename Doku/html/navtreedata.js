@@ -25,14 +25,14 @@
 var NAVTREE =
 [
   [ "Analysis", "index.html", [
-    [ "Changelog", "md__analysis_changelog.html", null ],
-    [ "WinFlexBison - Flex and Bison for Microsoft Windows", "md__analysis__r_e_a_d_m_e.html", [
-      [ "Build status", "md__analysis__r_e_a_d_m_e.html#autotoc_md32", null ],
-      [ "Downloads", "md__analysis__r_e_a_d_m_e.html#autotoc_md33", null ],
-      [ "Changelog", "md__analysis__r_e_a_d_m_e.html#autotoc_md34", null ],
-      [ "Build requirements", "md__analysis__r_e_a_d_m_e.html#autotoc_md35", null ],
-      [ "HowTo", "md__analysis__r_e_a_d_m_e.html#autotoc_md36", null ],
-      [ "Example flex/bison files", "md__analysis__r_e_a_d_m_e.html#autotoc_md37", null ]
+    [ "Changelog", "md__c_1__users__yoshi_source_repos__analysis__analysis_changelog.html", null ],
+    [ "WinFlexBison - Flex and Bison for Microsoft Windows", "md__c_1__users__yoshi_source_repos__analysis__analysis__r_e_a_d_m_e.html", [
+      [ "Build status", "md__c_1__users__yoshi_source_repos__analysis__analysis__r_e_a_d_m_e.html#autotoc_md32", null ],
+      [ "Downloads", "md__c_1__users__yoshi_source_repos__analysis__analysis__r_e_a_d_m_e.html#autotoc_md33", null ],
+      [ "Changelog", "md__c_1__users__yoshi_source_repos__analysis__analysis__r_e_a_d_m_e.html#autotoc_md34", null ],
+      [ "Build requirements", "md__c_1__users__yoshi_source_repos__analysis__analysis__r_e_a_d_m_e.html#autotoc_md35", null ],
+      [ "HowTo", "md__c_1__users__yoshi_source_repos__analysis__analysis__r_e_a_d_m_e.html#autotoc_md36", null ],
+      [ "Example flex/bison files", "md__c_1__users__yoshi_source_repos__analysis__analysis__r_e_a_d_m_e.html#autotoc_md37", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -52,7 +52,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_data_element_8cpp_source.html"
+"_flex_lexer_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

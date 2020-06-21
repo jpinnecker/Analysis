@@ -7,9 +7,11 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_ram_abec6b678561a28b9827c7e24d8aa6b06}{increase\+Stack\+Size}} (size\+\_\+t size)
+void \mbox{\hyperlink{class_ram_ac29f3ac19749ee0d4dee4edf17aea8e7}{increase\+Stack\+Size}} (size\+\_\+t byte\+Size)
 \item 
-void \mbox{\hyperlink{class_ram_a2c6b0496e3e5e4fdfc8d955ec3003133}{decrease\+Stack\+Size}} (size\+\_\+t size)
+void \mbox{\hyperlink{class_ram_ac48f860796ab95671f49d8a0d57ee8fe}{decrease\+Stack\+Size}} (size\+\_\+t byte\+Size)
+\item 
+void \mbox{\hyperlink{class_ram_ab6845f362d66c22b60c7b59a91638dd2}{increase\+Ram\+Max}} (size\+\_\+t byte\+Size)
 \item 
 unsigned long long \mbox{\hyperlink{class_ram_a7610af32ea7975124a37f1c5fed3c36f}{get\+Stack\+Size}} () const
 \item 
@@ -25,13 +27,13 @@ Definition at line 6 of file Ram.\+h.
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_ram_a2c6b0496e3e5e4fdfc8d955ec3003133}\label{class_ram_a2c6b0496e3e5e4fdfc8d955ec3003133}} 
+\mbox{\Hypertarget{class_ram_ac48f860796ab95671f49d8a0d57ee8fe}\label{class_ram_ac48f860796ab95671f49d8a0d57ee8fe}} 
 \index{Ram@{Ram}!decreaseStackSize@{decreaseStackSize}}
 \index{decreaseStackSize@{decreaseStackSize}!Ram@{Ram}}
 \doxysubsubsection{\texorpdfstring{decreaseStackSize()}{decreaseStackSize()}}
-{\footnotesize\ttfamily void Ram\+::decrease\+Stack\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Ram\+::decrease\+Stack\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size }\end{DoxyParamCaption})}
 
-Verringert stack\+Size um size. Ruft update\+Ram\+Size auf. Sollte nur vom Destruktor des Data\+Elements aufgerufen werden. 
+Verringert stack\+Size um size. Ruft update\+Ram\+Size auf. 
 
 Definition at line 16 of file Ram.\+cpp.
 
@@ -43,7 +45,7 @@ Definition at line 16 of file Ram.\+cpp.
 
 Hat ram\+Max als Rückgabewert. 
 
-Definition at line 27 of file Ram.\+cpp.
+Definition at line 32 of file Ram.\+cpp.
 
 \mbox{\Hypertarget{class_ram_a7610af32ea7975124a37f1c5fed3c36f}\label{class_ram_a7610af32ea7975124a37f1c5fed3c36f}} 
 \index{Ram@{Ram}!getStackSize@{getStackSize}}
@@ -53,15 +55,25 @@ Definition at line 27 of file Ram.\+cpp.
 
 Hat stack\+Size als Rückgabewert. 
 
+Definition at line 27 of file Ram.\+cpp.
+
+\mbox{\Hypertarget{class_ram_ab6845f362d66c22b60c7b59a91638dd2}\label{class_ram_ab6845f362d66c22b60c7b59a91638dd2}} 
+\index{Ram@{Ram}!increaseRamMax@{increaseRamMax}}
+\index{increaseRamMax@{increaseRamMax}!Ram@{Ram}}
+\doxysubsubsection{\texorpdfstring{increaseRamMax()}{increaseRamMax()}}
+{\footnotesize\ttfamily void Ram\+::increase\+Ram\+Max (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size }\end{DoxyParamCaption})}
+
+Füge byte\+Size ram\+Max hinzu. 
+
 Definition at line 22 of file Ram.\+cpp.
 
-\mbox{\Hypertarget{class_ram_abec6b678561a28b9827c7e24d8aa6b06}\label{class_ram_abec6b678561a28b9827c7e24d8aa6b06}} 
+\mbox{\Hypertarget{class_ram_ac29f3ac19749ee0d4dee4edf17aea8e7}\label{class_ram_ac29f3ac19749ee0d4dee4edf17aea8e7}} 
 \index{Ram@{Ram}!increaseStackSize@{increaseStackSize}}
 \index{increaseStackSize@{increaseStackSize}!Ram@{Ram}}
 \doxysubsubsection{\texorpdfstring{increaseStackSize()}{increaseStackSize()}}
-{\footnotesize\ttfamily void Ram\+::increase\+Stack\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Ram\+::increase\+Stack\+Size (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{byte\+Size }\end{DoxyParamCaption})}
 
-Erhöht stack\+Size um size. Ruft update\+Ram\+Size auf. Sollte nur vom Konstruktor des Data\+Elements aufgerufen werden. 
+Erhöht stack\+Size um size. Ruft update\+Ram\+Size auf. 
 
 Definition at line 10 of file Ram.\+cpp.
 
@@ -69,5 +81,5 @@ Definition at line 10 of file Ram.\+cpp.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Analysis/Ram.\+h\item 
-Analysis/Ram.\+cpp\end{DoxyCompactItemize}
+C\+:/\+Users/\+Yoshi/source/repos/\+Analysis/\+Analysis/Ram.\+h\item 
+C\+:/\+Users/\+Yoshi/source/repos/\+Analysis/\+Analysis/Ram.\+cpp\end{DoxyCompactItemize}

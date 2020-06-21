@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Analysis: Analysis/TokenProcessor.cpp Source File</title>
+<title>Analysis: C:/Users/Yoshi/source/repos/Analysis/Analysis/TokenProcessor.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -107,37 +107,54 @@ $(document).ready(function(){initNavTree('_token_processor_8cpp_source.html','')
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> lineCounter;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">* Creates new dataElement with given size and puts it on the stack.</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_token_processor.html#a7769718d270638eead851baf495180da">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_token_processor.html#a7769718d270638eead851baf495180da">TokenProcessor::processToken</a>(<span class="keywordtype">size_t</span> byteSize, <span class="keywordtype">string</span> message)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    cout &lt;&lt; message;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ramStack.push(<span class="keyword">new</span> <a class="code" href="class_data_element.html">DataElement</a>(byteSize,&amp;ram));</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    prntPrc();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">TokenProcessor::printResults</a>()</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Results over &quot;</span> &lt;&lt; <a class="code" href="class_token_processor.html#a13e73c0472824844c4b3a38c2458b495">getLine</a>() &lt;&lt; <span class="stringliteral">&quot; lines.&quot;</span> &lt;&lt; endl</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">//&lt;&lt; &quot;The following types were found:&quot; &lt;&lt; endl</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//&lt;&lt; &quot;Integer: &quot; &lt;&lt; intCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//&lt;&lt; &quot;Short: &quot; &lt;&lt; shortCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//&lt;&lt; &quot;Long: &quot; &lt;&lt; longCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//&lt;&lt; &quot;Long Long: &quot; &lt;&lt; longLongCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">//&lt;&lt; &quot;Float: &quot; &lt;&lt; floatCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//&lt;&lt; &quot;Double: &quot; &lt;&lt; doubleCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="comment">//&lt;&lt; &quot;Long Double: &quot; &lt;&lt; longDoubleCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//&lt;&lt; &quot;Character: &quot; &lt;&lt; charCounter &lt;&lt; endl</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;MaxRAM: &quot;</span> &lt;&lt; ram.<a class="code" href="class_ram.html#a6e8553ead40c6f32d0ecb0758e2a6f21">getRamMax</a>() &lt;&lt; <span class="stringliteral">&quot; Bytes&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_token_processor.html#a7769718d270638eead851baf495180da">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_token_processor.html#a7769718d270638eead851baf495180da">TokenProcessor::processToken</a>(<span class="keywordtype">size_t</span> byteSize, <span class="keywordtype">string</span> message)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    cout &lt;&lt; message;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    functionIterator-&gt;second-&gt;pushRamStack(byteSize);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    cout &lt;&lt; byteSize &lt;&lt; <span class="stringliteral">&quot; Bytes | &quot;</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    prntPrc();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> TokenProcessor::processFunction(<span class="keywordtype">string</span> fnctName)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Functioncall... &quot;</span> &lt;&lt; fnctName &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">//Finde Funktion und beachte den Maximalverbrauch.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">size_t</span> feRamMax = functionMap.find(fnctName)-&gt;second-&gt;getRam()-&gt;getRamMax();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    functionIterator-&gt;second-&gt;pushRamStack(feRamMax);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    functionIterator-&gt;second-&gt;popRamStack(feRamMax);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    cout &lt;&lt; feRamMax &lt;&lt; <span class="stringliteral">&quot; Bytes processed.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_token_processor.html#aad2d3250aa99a887417f860e2e3ded8f">   41</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_token_processor.html#aad2d3250aa99a887417f860e2e3ded8f">TokenProcessor::registerFunction</a>(<span class="keywordtype">size_t</span> returnSize, <span class="keywordtype">string</span> fnctName)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">//Füge der map eine neue Funktion hinzu und setze den Iterator auf diese.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Function found... &quot;</span> &lt;&lt; fnctName;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    functionIterator = functionMap.insert(functionMap.end(), make_pair(fnctName, <span class="keyword">new</span> <a class="code" href="class_function_element.html">FunctionElement</a>(returnSize)));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot; registered.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">   50</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">TokenProcessor::printResults</a>()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Results over &quot;</span> &lt;&lt; <a class="code" href="class_token_processor.html#a13e73c0472824844c4b3a38c2458b495">getLine</a>() &lt;&lt; <span class="stringliteral">&quot; lines.&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="comment">//&lt;&lt; &quot;The following types were found:&quot; &lt;&lt; endl</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">//&lt;&lt; &quot;Integer: &quot; &lt;&lt; intCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">//&lt;&lt; &quot;Short: &quot; &lt;&lt; shortCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//&lt;&lt; &quot;Long: &quot; &lt;&lt; longCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//&lt;&lt; &quot;Long Long: &quot; &lt;&lt; longLongCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">//&lt;&lt; &quot;Float: &quot; &lt;&lt; floatCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="comment">//&lt;&lt; &quot;Double: &quot; &lt;&lt; doubleCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">//&lt;&lt; &quot;Long Double: &quot; &lt;&lt; longDoubleCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">//&lt;&lt; &quot;Character: &quot; &lt;&lt; charCounter &lt;&lt; endl</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        &lt;&lt; <span class="stringliteral">&quot;MaxRAM: &quot;</span> &lt;&lt; functionMap.find(<span class="stringliteral">&quot;main&quot;</span>)-&gt;second-&gt;getRam()-&gt;getRamMax() &lt;&lt; <span class="stringliteral">&quot; Bytes&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclass_token_processor_html_aad2d3250aa99a887417f860e2e3ded8f"><div class="ttname"><a href="class_token_processor.html#aad2d3250aa99a887417f860e2e3ded8f">TokenProcessor::registerFunction</a></div><div class="ttdeci">void registerFunction(size_t returnSize, string fnctName)</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00041">TokenProcessor.cpp:41</a></div></div>
+<div class="ttc" id="aclass_function_element_html"><div class="ttname"><a href="class_function_element.html">FunctionElement</a></div><div class="ttdef"><b>Definition:</b> <a href="_function_element_8h_source.html#l00009">FunctionElement.h:10</a></div></div>
 <div class="ttc" id="aclass_token_processor_html_aa4cd62ede8a2b769205ab615908ed1f4"><div class="ttname"><a href="class_token_processor.html#aa4cd62ede8a2b769205ab615908ed1f4">TokenProcessor::incrementLine</a></div><div class="ttdeci">void incrementLine()</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00013">TokenProcessor.cpp:13</a></div></div>
-<div class="ttc" id="aclass_token_processor_html_a7769718d270638eead851baf495180da"><div class="ttname"><a href="class_token_processor.html#a7769718d270638eead851baf495180da">TokenProcessor::processToken</a></div><div class="ttdeci">void processToken(size_t byteSize, string message)</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00026">TokenProcessor.cpp:26</a></div></div>
-<div class="ttc" id="aclass_token_processor_html_a93940c82b8ba018c435b7897a4ce4830"><div class="ttname"><a href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">TokenProcessor::printResults</a></div><div class="ttdeci">void printResults()</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00033">TokenProcessor.cpp:33</a></div></div>
-<div class="ttc" id="aclass_data_element_html"><div class="ttname"><a href="class_data_element.html">DataElement</a></div><div class="ttdef"><b>Definition:</b> <a href="_data_element_8h_source.html#l00007">DataElement.h:8</a></div></div>
-<div class="ttc" id="aclass_ram_html_a6e8553ead40c6f32d0ecb0758e2a6f21"><div class="ttname"><a href="class_ram.html#a6e8553ead40c6f32d0ecb0758e2a6f21">Ram::getRamMax</a></div><div class="ttdeci">unsigned long long getRamMax() const</div><div class="ttdef"><b>Definition:</b> <a href="_ram_8cpp_source.html#l00027">Ram.cpp:27</a></div></div>
+<div class="ttc" id="aclass_token_processor_html_a7769718d270638eead851baf495180da"><div class="ttname"><a href="class_token_processor.html#a7769718d270638eead851baf495180da">TokenProcessor::processToken</a></div><div class="ttdeci">void processToken(size_t byteSize, string message)</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00023">TokenProcessor.cpp:23</a></div></div>
+<div class="ttc" id="aclass_token_processor_html_a93940c82b8ba018c435b7897a4ce4830"><div class="ttname"><a href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">TokenProcessor::printResults</a></div><div class="ttdeci">void printResults()</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00050">TokenProcessor.cpp:50</a></div></div>
 <div class="ttc" id="aclass_token_processor_html_a13e73c0472824844c4b3a38c2458b495"><div class="ttname"><a href="class_token_processor.html#a13e73c0472824844c4b3a38c2458b495">TokenProcessor::getLine</a></div><div class="ttdeci">unsigned int getLine()</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00018">TokenProcessor.cpp:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

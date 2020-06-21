@@ -99,13 +99,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13e73c0472824844c4b3a38c2458b495"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7769718d270638eead851baf495180da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token_processor.html#a7769718d270638eead851baf495180da">processToken</a> (size_t byteSize, string message)</td></tr>
 <tr class="separator:a7769718d270638eead851baf495180da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a2f47d0b53c8da973ccd87c88b5e7d"><td class="memItemLeft" align="right" valign="top"><a id="a83a2f47d0b53c8da973ccd87c88b5e7d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>processFunction</b> (string fnctName)</td></tr>
+<tr class="separator:a83a2f47d0b53c8da973ccd87c88b5e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2d3250aa99a887417f860e2e3ded8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token_processor.html#aad2d3250aa99a887417f860e2e3ded8f">registerFunction</a> (size_t returnSize, string fnctName)</td></tr>
+<tr class="separator:aad2d3250aa99a887417f860e2e3ded8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93940c82b8ba018c435b7897a4ce4830"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">printResults</a> ()</td></tr>
 <tr class="separator:a93940c82b8ba018c435b7897a4ce4830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Klasse zur Verarbeitung der gefundenen Tokens. </p>
 
-<p class="definition">Definition at line <a class="el" href="_token_processor_8h_source.html#l00010">10</a> of file <a class="el" href="_token_processor_8h_source.html">TokenProcessor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_token_processor_8h_source.html#l00011">11</a> of file <a class="el" href="_token_processor_8h_source.html">TokenProcessor.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a13e73c0472824844c4b3a38c2458b495"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13e73c0472824844c4b3a38c2458b495">&#9670;&nbsp;</a></span>getLine()</h2>
@@ -163,7 +168,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Ausgabe der Ergebnisse. </p>
 
-<p class="definition">Definition at line <a class="el" href="_token_processor_8cpp_source.html#l00033">33</a> of file <a class="el" href="_token_processor_8cpp_source.html">TokenProcessor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_token_processor_8cpp_source.html#l00050">50</a> of file <a class="el" href="_token_processor_8cpp_source.html">TokenProcessor.cpp</a>.</p>
 
 </div>
 </div>
@@ -192,15 +197,46 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Wird vom Parser aufgerufen. Die übergebene message wird ausgegeben. Anhand von byteSize wird ein neues Datenelement auf den ramStack gelegt. </p>
+<p>Wird vom Parser aufgerufen. Die übergebene message wird ausgegeben. Es wird increaseStackSize(byteSize) des Rams der momentanen Funktion aufgerufen </p>
 
-<p class="definition">Definition at line <a class="el" href="_token_processor_8cpp_source.html#l00026">26</a> of file <a class="el" href="_token_processor_8cpp_source.html">TokenProcessor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_token_processor_8cpp_source.html#l00023">23</a> of file <a class="el" href="_token_processor_8cpp_source.html">TokenProcessor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aad2d3250aa99a887417f860e2e3ded8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2d3250aa99a887417f860e2e3ded8f">&#9670;&nbsp;</a></span>registerFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TokenProcessor::registerFunction </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>returnSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fnctName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Wird vom Parser aufgerufen, wenn eine neue Funktionsdefinition gefunden wurde. Der Name und die Größe der Rückgabe werden gespeichert. </p>
+
+<p class="definition">Definition at line <a class="el" href="_token_processor_8cpp_source.html#l00041">41</a> of file <a class="el" href="_token_processor_8cpp_source.html">TokenProcessor.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Analysis/<a class="el" href="_token_processor_8h_source.html">TokenProcessor.h</a></li>
-<li>Analysis/<a class="el" href="_token_processor_8cpp_source.html">TokenProcessor.cpp</a></li>
+<li>C:/Users/Yoshi/source/repos/Analysis/Analysis/<a class="el" href="_token_processor_8h_source.html">TokenProcessor.h</a></li>
+<li>C:/Users/Yoshi/source/repos/Analysis/Analysis/<a class="el" href="_token_processor_8cpp_source.html">TokenProcessor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

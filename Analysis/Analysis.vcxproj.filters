@@ -24,10 +24,13 @@
     <ClCompile Include="tokens.flex.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DataElement.cpp">
+    <ClCompile Include="Ram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ram.cpp">
+    <ClCompile Include="FunctionElement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StackElement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +41,13 @@
     <ClInclude Include="grammar.tab.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DataElement.h">
+    <ClInclude Include="Ram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ram.h">
+    <ClInclude Include="FunctionElement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StackElement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
