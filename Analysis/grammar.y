@@ -2,6 +2,8 @@
   #include <cstdio>
   #include <string>
   #include <iostream>
+  #include <fstream>
+  #include <sys/stat.h>
   #include "TokenProcessor.h"
   using namespace std;
 
@@ -274,7 +276,7 @@ int main(int, char**) {
   string pfad;
 
   // the user give the File-pfad to be analysed  
-  cout << "Geben sie den Datei-Pfad an: ";
+  cout << "Geben Sie den Datei-Pfad an: ";
   
   do{
     getline(cin, pfad);
@@ -287,6 +289,27 @@ int main(int, char**) {
     cout << "I can't open the file!" << endl;
     return 1;
   }
+
+  cout << "Wenn Sie die Ausgabe in eine Datei speichern wollen, geben Sie jetzt bitte einen Pfad an." << endl
+       << ": ";
+  getline(cin, pfad);
+
+  ofstream output;
+  
+  //Überprüfung auf Existenz.
+  struct stat buffer;
+  if(stat(pfad.c_str(), &buffer) == 0){
+    cout << "Datei existiert bereits. Ueberschreiben? [J/N] ";
+    char antwort = getchar();
+    if(antwort == 'Y' || antwort == 'y' || antwort == 'J' || antwort == 'j'){
+        output.open(pfad);
+        cout.rdbuf(output.rdbuf());
+    }
+  } else if(!pfad.empty()) {
+    output.open(pfad);
+    cout.rdbuf(output.rdbuf());
+  }
+
   // Set Flex to read from it instead of defaulting to STDIN:
   yyin = myfile;
   
