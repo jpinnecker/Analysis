@@ -274,21 +274,14 @@ int main(int, char**) {
   string pfad;
 
   // the user give the File-pfad to be analysed  
-  cout << "Geben sie den Datei-Pfad ";
-  getline(cin, pfad);
+  cout << "Geben sie den Datei-Pfad an: ";
+  
+  do{
+    getline(cin, pfad);
+  } while(pfad.empty());
 
+  errno_t err = fopen_s(&myfile, pfad.c_str(), "r");
 
-  if (pfad.empty())
-    cout << "Geben sie einen richtigen pfad";
-    errno_t err = fopen_s(&myfile, pfad, "r");
-
-    std::string str = "std::string to const char*";
-
-	char const *c = str.data();
-	std::cout << c;
-
-
-  //errno_t err = fopen_s(&myfile, "../CExampleProgram/Source.c", "r");
   // Make sure it is valid:
   if (!myfile) {
     cout << "I can't open the file!" << endl;
