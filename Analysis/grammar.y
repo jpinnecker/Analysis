@@ -268,24 +268,25 @@ long_double:
 ;
 %%
 
-int main(int, char**) {
-  // Open a file handle to a particular file:
-  // TODO: Change the file from hardcoded to one of users choosing
-  FILE *myfile;
+int main(int argc, char* argv[]) {
 
+  FILE* input;
   string pfad;
 
-  // the user give the File-pfad to be analysed  
-  cout << "Geben Sie den Datei-Pfad an: ";
-  
-  do{
-    getline(cin, pfad);
-  } while(pfad.empty());
+  if(argc >= 2){
+    input = fopen(argv[1], "r");
+  } else {
+    // the user give the File-pfad to be analysed  
+    cout << "Geben Sie den Datei-Pfad an: ";
+    do{
+        getline(cin, pfad);
+    } while(pfad.empty());
 
-  errno_t err = fopen_s(&myfile, pfad.c_str(), "r");
+    input = fopen(pfad.c_str(), "r");
+  }
 
   // Make sure it is valid:
-  if (!myfile) {
+  if (!input) {
     cout << "I can't open the file!" << endl;
     return 1;
   }
@@ -311,7 +312,7 @@ int main(int, char**) {
   }
 
   // Set Flex to read from it instead of defaulting to STDIN:
-  yyin = myfile;
+  yyin = input;
   
   // Parse through the input:
   yyparse();

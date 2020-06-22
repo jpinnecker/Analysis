@@ -1,4 +1,5 @@
 #pragma once
+#include "Ram.h"
 
 /**
 	Element eines Stacks.

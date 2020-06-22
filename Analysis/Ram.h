@@ -1,4 +1,5 @@
 #pragma once
+#include<cstddef>
 
 /**
 	Die Klasse um den Speicherbedarf zu verfolgen.

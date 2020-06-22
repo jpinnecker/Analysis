@@ -1,6 +1,5 @@
 #pragma once
 #include "StackElement.h"
-#include "Ram.h"
 #include <stack>
 
 /**

@@ -1,5 +1,6 @@
 %{
   #include "grammar.tab.h"  // to get the token types from Bison
+
   short longcounter = 0;
 %}
 %option noyywrap
@@ -65,7 +66,7 @@ long					longcounter++;
 int						;
 \*+						longcounter=0; BEGIN INITIAL; return POINTER;
 [a-zA-Z_][a-zA-Z0-9_]*  {
-	yylval.string = _strdup(yytext);
+	yylval.string = strdup(yytext);
 	short longs = longcounter;
 	longcounter = 0;
 	BEGIN INITIAL;
@@ -96,7 +97,7 @@ signed					;
 unsigned				;
 \*+						longcounter=0; BEGIN INITIAL; return POINTER;
 [a-zA-Z_][a-zA-Z0-9_]*  {
-	yylval.string = _strdup(yytext);
+	yylval.string = strdup(yytext);
 	short longs = longcounter;
 	longcounter = 0;
 	BEGIN INITIAL;
@@ -126,7 +127,7 @@ signed					;
 unsigned				;
 \*+						BEGIN INITIAL; return POINTER;
 [a-zA-Z_][a-zA-Z0-9_]*  {
-	yylval.string = _strdup(yytext);
+	yylval.string = strdup(yytext);
 	BEGIN INITIAL;
 	return SHORTID;
 	}
@@ -141,7 +142,7 @@ signed					;
 unsigned				;
 \*+						BEGIN INITIAL; return POINTER;
 [a-zA-Z_][a-zA-Z0-9_]*  {
-	yylval.string = _strdup(yytext);
+	yylval.string = strdup(yytext);
 	BEGIN INITIAL;
 	return CHARID;
 	}
@@ -154,7 +155,7 @@ float                   BEGIN FLOAT_LOGIC;
 <FLOAT_LOGIC>{
 \*+						BEGIN INITIAL; return POINTER;
 [a-zA-Z_][a-zA-Z0-9_]*  {
-	yylval.string = _strdup(yytext);
+	yylval.string = strdup(yytext);
 	BEGIN INITIAL;
 	return FLOATID;
 	}
@@ -168,7 +169,7 @@ double                  BEGIN DOUBLE_LOGIC;
 long					longcounter=1;
 \*+						longcounter=0; BEGIN INITIAL; return POINTER;
 [a-zA-Z_][a-zA-Z0-9_]*  {
-	yylval.string = _strdup(yytext);
+	yylval.string = strdup(yytext);
 	short longs = longcounter;
 	longcounter = 0;
 	BEGIN INITIAL;
@@ -197,7 +198,7 @@ unsigned				;
 int						;
 \*+						longcounter=0; BEGIN INITIAL; return POINTER;
 [a-zA-Z_][a-zA-Z0-9_]*  {
-	yylval.string = _strdup(yytext);
+	yylval.string = strdup(yytext);
 	short longs = longcounter;
 	longcounter = 0;
 	BEGIN INITIAL;
@@ -229,7 +230,7 @@ return					BEGIN RETURN_SECTION;
 
 void					return VOID;
 ("const"|"volatile"|"restrict") ;
-[a-zA-Z_][a-zA-Z0-9_]*  yylval.string = _strdup(yytext); return IDENTIFIER;
+[a-zA-Z_][a-zA-Z0-9_]*  yylval.string = strdup(yytext); return IDENTIFIER;
 \*						return '*';
 \&						return '&';
 \;                      return ';';
