@@ -86,29 +86,30 @@ $(document).ready(function(){initNavTree('_ram_8h_source.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_ram.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ram.html">Ram</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> stackSize = 0;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> heapSize = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> ramSize = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> ramMax = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> updateRamSize();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ram.html#ac29f3ac19749ee0d4dee4edf17aea8e7">increaseStackSize</a>(<span class="keywordtype">size_t</span> byteSize);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ram.html#ac48f860796ab95671f49d8a0d57ee8fe">decreaseStackSize</a>(<span class="keywordtype">size_t</span> byteSize);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ram.html#ab6845f362d66c22b60c7b59a91638dd2">increaseRamMax</a>(<span class="keywordtype">size_t</span> byteSize);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="class_ram.html#a7610af32ea7975124a37f1c5fed3c36f">getStackSize</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="class_ram.html#a6e8553ead40c6f32d0ecb0758e2a6f21">getRamMax</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_ram.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_ram.html">Ram</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> stackSize = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> heapSize = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> ramSize = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> ramMax = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> updateRamSize();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ram.html#ac29f3ac19749ee0d4dee4edf17aea8e7">increaseStackSize</a>(<span class="keywordtype">size_t</span> byteSize);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ram.html#ac48f860796ab95671f49d8a0d57ee8fe">decreaseStackSize</a>(<span class="keywordtype">size_t</span> byteSize);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_ram.html#ab6845f362d66c22b60c7b59a91638dd2">increaseRamMax</a>(<span class="keywordtype">size_t</span> byteSize);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="class_ram.html#a7610af32ea7975124a37f1c5fed3c36f">getStackSize</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> <a class="code" href="class_ram.html#a6e8553ead40c6f32d0ecb0758e2a6f21">getRamMax</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_ram_html_ab6845f362d66c22b60c7b59a91638dd2"><div class="ttname"><a href="class_ram.html#ab6845f362d66c22b60c7b59a91638dd2">Ram::increaseRamMax</a></div><div class="ttdeci">void increaseRamMax(size_t byteSize)</div><div class="ttdef"><b>Definition:</b> <a href="_ram_8cpp_source.html#l00022">Ram.cpp:22</a></div></div>
 <div class="ttc" id="aclass_ram_html_ac29f3ac19749ee0d4dee4edf17aea8e7"><div class="ttname"><a href="class_ram.html#ac29f3ac19749ee0d4dee4edf17aea8e7">Ram::increaseStackSize</a></div><div class="ttdeci">void increaseStackSize(size_t byteSize)</div><div class="ttdef"><b>Definition:</b> <a href="_ram_8cpp_source.html#l00010">Ram.cpp:10</a></div></div>
-<div class="ttc" id="aclass_ram_html"><div class="ttname"><a href="class_ram.html">Ram</a></div><div class="ttdef"><b>Definition:</b> <a href="_ram_8h_source.html#l00006">Ram.h:7</a></div></div>
+<div class="ttc" id="aclass_ram_html"><div class="ttname"><a href="class_ram.html">Ram</a></div><div class="ttdef"><b>Definition:</b> <a href="_ram_8h_source.html#l00007">Ram.h:8</a></div></div>
 <div class="ttc" id="aclass_ram_html_a7610af32ea7975124a37f1c5fed3c36f"><div class="ttname"><a href="class_ram.html#a7610af32ea7975124a37f1c5fed3c36f">Ram::getStackSize</a></div><div class="ttdeci">unsigned long long getStackSize() const</div><div class="ttdef"><b>Definition:</b> <a href="_ram_8cpp_source.html#l00027">Ram.cpp:27</a></div></div>
 <div class="ttc" id="aclass_ram_html_a6e8553ead40c6f32d0ecb0758e2a6f21"><div class="ttname"><a href="class_ram.html#a6e8553ead40c6f32d0ecb0758e2a6f21">Ram::getRamMax</a></div><div class="ttdeci">unsigned long long getRamMax() const</div><div class="ttdef"><b>Definition:</b> <a href="_ram_8cpp_source.html#l00032">Ram.cpp:32</a></div></div>
 <div class="ttc" id="aclass_ram_html_ac48f860796ab95671f49d8a0d57ee8fe"><div class="ttname"><a href="class_ram.html#ac48f860796ab95671f49d8a0d57ee8fe">Ram::decreaseStackSize</a></div><div class="ttdeci">void decreaseStackSize(size_t byteSize)</div><div class="ttdef"><b>Definition:</b> <a href="_ram_8cpp_source.html#l00016">Ram.cpp:16</a></div></div>

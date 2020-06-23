@@ -2212,61 +2212,62 @@ $(document).ready(function(){initNavTree('grammar_8tab_8cpp_source.html',''); in
 <div class="line"><a name="l02125"></a><span class="lineno"> 2125</span>&#160;<span class="preprocessor">#line 269 &quot;grammar.y&quot;</span></div>
 <div class="line"><a name="l02126"></a><span class="lineno"> 2126</span>&#160; </div>
 <div class="line"><a name="l02127"></a><span class="lineno"> 2127</span>&#160; </div>
-<div class="line"><a name="l02128"></a><span class="lineno"> 2128</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">int</span>, <span class="keywordtype">char</span>**) {</div>
-<div class="line"><a name="l02129"></a><span class="lineno"> 2129</span>&#160;  <span class="comment">// Open a file handle to a particular file:</span></div>
-<div class="line"><a name="l02130"></a><span class="lineno"> 2130</span>&#160;  <span class="comment">// TODO: Change the file from hardcoded to one of users choosing</span></div>
-<div class="line"><a name="l02131"></a><span class="lineno"> 2131</span>&#160;  FILE *myfile;</div>
+<div class="line"><a name="l02128"></a><span class="lineno"> 2128</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line"><a name="l02129"></a><span class="lineno"> 2129</span>&#160; </div>
+<div class="line"><a name="l02130"></a><span class="lineno"> 2130</span>&#160;  FILE* input;</div>
+<div class="line"><a name="l02131"></a><span class="lineno"> 2131</span>&#160;  <span class="keywordtype">string</span> pfad;</div>
 <div class="line"><a name="l02132"></a><span class="lineno"> 2132</span>&#160; </div>
-<div class="line"><a name="l02133"></a><span class="lineno"> 2133</span>&#160;  <span class="keywordtype">string</span> pfad;</div>
-<div class="line"><a name="l02134"></a><span class="lineno"> 2134</span>&#160; </div>
-<div class="line"><a name="l02135"></a><span class="lineno"> 2135</span>&#160;  <span class="comment">// the user give the File-pfad to be analysed  </span></div>
-<div class="line"><a name="l02136"></a><span class="lineno"> 2136</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Geben Sie den Datei-Pfad an: &quot;</span>;</div>
-<div class="line"><a name="l02137"></a><span class="lineno"> 2137</span>&#160;  </div>
-<div class="line"><a name="l02138"></a><span class="lineno"> 2138</span>&#160;  <span class="keywordflow">do</span>{</div>
-<div class="line"><a name="l02139"></a><span class="lineno"> 2139</span>&#160;    getline(cin, pfad);</div>
-<div class="line"><a name="l02140"></a><span class="lineno"> 2140</span>&#160;  } <span class="keywordflow">while</span>(pfad.empty());</div>
+<div class="line"><a name="l02133"></a><span class="lineno"> 2133</span>&#160;  <span class="keywordflow">if</span>(argc &gt;= 2){</div>
+<div class="line"><a name="l02134"></a><span class="lineno"> 2134</span>&#160;    input = fopen(argv[1], <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a name="l02135"></a><span class="lineno"> 2135</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l02136"></a><span class="lineno"> 2136</span>&#160;    <span class="comment">// the user give the File-pfad to be analysed  </span></div>
+<div class="line"><a name="l02137"></a><span class="lineno"> 2137</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Geben Sie den Datei-Pfad an: &quot;</span>;</div>
+<div class="line"><a name="l02138"></a><span class="lineno"> 2138</span>&#160;    <span class="keywordflow">do</span>{</div>
+<div class="line"><a name="l02139"></a><span class="lineno"> 2139</span>&#160;        getline(cin, pfad);</div>
+<div class="line"><a name="l02140"></a><span class="lineno"> 2140</span>&#160;    } <span class="keywordflow">while</span>(pfad.empty());</div>
 <div class="line"><a name="l02141"></a><span class="lineno"> 2141</span>&#160; </div>
-<div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160;  errno_t err = fopen_s(&amp;myfile, pfad.c_str(), <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><a name="l02143"></a><span class="lineno"> 2143</span>&#160; </div>
-<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160;  <span class="comment">// Make sure it is valid:</span></div>
-<div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;  <span class="keywordflow">if</span> (!myfile) {</div>
-<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;I can&#39;t open the file!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160;  }</div>
-<div class="line"><a name="l02149"></a><span class="lineno"> 2149</span>&#160; </div>
-<div class="line"><a name="l02150"></a><span class="lineno"> 2150</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Wenn Sie die Ausgabe in eine Datei speichern wollen, geben Sie jetzt bitte einen Pfad an.&quot;</span> &lt;&lt; endl</div>
-<div class="line"><a name="l02151"></a><span class="lineno"> 2151</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;: &quot;</span>;</div>
-<div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;  getline(cin, pfad);</div>
-<div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160; </div>
-<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160;  ofstream output;</div>
-<div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160;  </div>
-<div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;  <span class="comment">//Überprüfung auf Existenz.</span></div>
-<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;  <span class="keyword">struct </span>stat buffer;</div>
-<div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;  <span class="keywordflow">if</span>(stat(pfad.c_str(), &amp;buffer) == 0){</div>
-<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Datei existiert bereits. Ueberschreiben? [J/N] &quot;</span>;</div>
-<div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;    <span class="keywordtype">char</span> antwort = getchar();</div>
-<div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;    <span class="keywordflow">if</span>(antwort == <span class="charliteral">&#39;Y&#39;</span> || antwort == <span class="charliteral">&#39;y&#39;</span> || antwort == <span class="charliteral">&#39;J&#39;</span> || antwort == <span class="charliteral">&#39;j&#39;</span>){</div>
-<div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160;        output.open(pfad);</div>
-<div class="line"><a name="l02163"></a><span class="lineno"> 2163</span>&#160;        cout.rdbuf(output.rdbuf());</div>
-<div class="line"><a name="l02164"></a><span class="lineno"> 2164</span>&#160;    }</div>
-<div class="line"><a name="l02165"></a><span class="lineno"> 2165</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!pfad.empty()) {</div>
-<div class="line"><a name="l02166"></a><span class="lineno"> 2166</span>&#160;    output.open(pfad);</div>
-<div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160;    cout.rdbuf(output.rdbuf());</div>
-<div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160;  }</div>
-<div class="line"><a name="l02169"></a><span class="lineno"> 2169</span>&#160; </div>
-<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160;  <span class="comment">// Set Flex to read from it instead of defaulting to STDIN:</span></div>
-<div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160;  yyin = myfile;</div>
-<div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160;  </div>
-<div class="line"><a name="l02173"></a><span class="lineno"> 2173</span>&#160;  <span class="comment">// Parse through the input:</span></div>
-<div class="line"><a name="l02174"></a><span class="lineno"> 2174</span>&#160;  yyparse();</div>
-<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160; </div>
-<div class="line"><a name="l02176"></a><span class="lineno"> 2176</span>&#160;  tokenProcessor.<a class="code" href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">printResults</a>();</div>
-<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;}</div>
-<div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160; </div>
-<div class="line"><a name="l02179"></a><span class="lineno"> 2179</span>&#160;<span class="keywordtype">void</span> yyerror(<span class="keyword">const</span> <span class="keywordtype">char</span> *s) {</div>
-<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Parse error on line: &quot;</span> &lt;&lt; tokenProcessor.<a class="code" href="class_token_processor.html#a13e73c0472824844c4b3a38c2458b495">getLine</a>() &lt;&lt; <span class="stringliteral">&quot; - Message: &quot;</span> &lt;&lt; s &lt;&lt; endl;</div>
-<div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160;}</div>
-<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160; </div>
+<div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160;    input = fopen(pfad.c_str(), <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a name="l02143"></a><span class="lineno"> 2143</span>&#160;  }</div>
+<div class="line"><a name="l02144"></a><span class="lineno"> 2144</span>&#160; </div>
+<div class="line"><a name="l02145"></a><span class="lineno"> 2145</span>&#160;  <span class="comment">// Make sure it is valid:</span></div>
+<div class="line"><a name="l02146"></a><span class="lineno"> 2146</span>&#160;  <span class="keywordflow">if</span> (!input) {</div>
+<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;I can&#39;t open the file!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160;    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l02149"></a><span class="lineno"> 2149</span>&#160;  }</div>
+<div class="line"><a name="l02150"></a><span class="lineno"> 2150</span>&#160; </div>
+<div class="line"><a name="l02151"></a><span class="lineno"> 2151</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Wenn Sie die Ausgabe in eine Datei speichern wollen, geben Sie jetzt bitte einen Pfad an.&quot;</span> &lt;&lt; endl</div>
+<div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;       &lt;&lt; <span class="stringliteral">&quot;: &quot;</span>;</div>
+<div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160;  getline(cin, pfad);</div>
+<div class="line"><a name="l02154"></a><span class="lineno"> 2154</span>&#160; </div>
+<div class="line"><a name="l02155"></a><span class="lineno"> 2155</span>&#160;  ofstream output;</div>
+<div class="line"><a name="l02156"></a><span class="lineno"> 2156</span>&#160;  </div>
+<div class="line"><a name="l02157"></a><span class="lineno"> 2157</span>&#160;  <span class="comment">//Überprüfung auf Existenz.</span></div>
+<div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;  <span class="keyword">struct </span>stat buffer;</div>
+<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160;  <span class="keywordflow">if</span>(stat(pfad.c_str(), &amp;buffer) == 0){</div>
+<div class="line"><a name="l02160"></a><span class="lineno"> 2160</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;Datei existiert bereits. Ueberschreiben? [J/N] &quot;</span>;</div>
+<div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;    <span class="keywordtype">char</span> antwort = getchar();</div>
+<div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160;    <span class="keywordflow">if</span>(antwort == <span class="charliteral">&#39;Y&#39;</span> || antwort == <span class="charliteral">&#39;y&#39;</span> || antwort == <span class="charliteral">&#39;J&#39;</span> || antwort == <span class="charliteral">&#39;j&#39;</span>){</div>
+<div class="line"><a name="l02163"></a><span class="lineno"> 2163</span>&#160;        output.open(pfad);</div>
+<div class="line"><a name="l02164"></a><span class="lineno"> 2164</span>&#160;        cout.rdbuf(output.rdbuf());</div>
+<div class="line"><a name="l02165"></a><span class="lineno"> 2165</span>&#160;    }</div>
+<div class="line"><a name="l02166"></a><span class="lineno"> 2166</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!pfad.empty()) {</div>
+<div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160;    output.open(pfad);</div>
+<div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160;    cout.rdbuf(output.rdbuf());</div>
+<div class="line"><a name="l02169"></a><span class="lineno"> 2169</span>&#160;  }</div>
+<div class="line"><a name="l02170"></a><span class="lineno"> 2170</span>&#160; </div>
+<div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160;  <span class="comment">// Set Flex to read from it instead of defaulting to STDIN:</span></div>
+<div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160;  yyin = input;</div>
+<div class="line"><a name="l02173"></a><span class="lineno"> 2173</span>&#160;  </div>
+<div class="line"><a name="l02174"></a><span class="lineno"> 2174</span>&#160;  <span class="comment">// Parse through the input:</span></div>
+<div class="line"><a name="l02175"></a><span class="lineno"> 2175</span>&#160;  yyparse();</div>
+<div class="line"><a name="l02176"></a><span class="lineno"> 2176</span>&#160; </div>
+<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;  tokenProcessor.<a class="code" href="class_token_processor.html#a93940c82b8ba018c435b7897a4ce4830">printResults</a>();</div>
+<div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160;}</div>
+<div class="line"><a name="l02179"></a><span class="lineno"> 2179</span>&#160; </div>
+<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;<span class="keywordtype">void</span> yyerror(<span class="keyword">const</span> <span class="keywordtype">char</span> *s) {</div>
+<div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160;  cout &lt;&lt; <span class="stringliteral">&quot;Parse error on line: &quot;</span> &lt;&lt; tokenProcessor.<a class="code" href="class_token_processor.html#a13e73c0472824844c4b3a38c2458b495">getLine</a>() &lt;&lt; <span class="stringliteral">&quot; - Message: &quot;</span> &lt;&lt; s &lt;&lt; endl;</div>
+<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;}</div>
+<div class="line"><a name="l02183"></a><span class="lineno"> 2183</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_token_processor_html_aad2d3250aa99a887417f860e2e3ded8f"><div class="ttname"><a href="class_token_processor.html#aad2d3250aa99a887417f860e2e3ded8f">TokenProcessor::registerFunction</a></div><div class="ttdeci">void registerFunction(size_t returnSize, string fnctName)</div><div class="ttdef"><b>Definition:</b> <a href="_token_processor_8cpp_source.html#l00041">TokenProcessor.cpp:41</a></div></div>
