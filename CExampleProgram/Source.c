@@ -5,13 +5,14 @@ int functionTest() {
 	return 0;
 }
 
-void testFunction(int i, double d) {
+void testFunction(int i, double d, char c) {
 
 }
 
 int main(int argc, char** argv) {
 	functionTest      ();
-	int test = 0;
+	int testI = 0;
 	double testD = 0;
-	testFunction(test, testD);
+	char testC = 'a';
+	testFunction(testC, testD, testC);
 }

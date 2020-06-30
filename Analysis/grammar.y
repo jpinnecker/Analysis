@@ -208,7 +208,7 @@ bodyline:
 
 //Parameterliste
 params:
-    param ',' param
+    params ',' param
     | param;
 param:
     %empty
